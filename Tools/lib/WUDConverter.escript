@@ -92,7 +92,7 @@ static createParamList = fn(min, max) {
 			o = "[" + o.substr(4);
 		p += o;
 	}
-	return p;
+	return "(" + p + ")";
 };
 
 //----------------------
@@ -119,14 +119,11 @@ T.resolveRef ::= fn(ref) {
 
 //----------------------
 
-T.collectKeywords ::= fn(to) {
+T.collectKeywords ::= fn(c) {
 	var keywords = [];
-	foreach(to.functions as var f)
-		if(XML.search(f.name, "\\w+"))
-			keywords += f.name;
-	foreach(to.constants as var a)
-		if(XML.search(a.name, "\\w+"))
-			keywords += a.name;
+	foreach(c.member as var m)
+		if(XML.search(m.name, "\\w+"))
+			keywords += m.name;
 	return keywords;
 };
 
@@ -138,23 +135,27 @@ T.writeCompound ::= fn(c) {
 	var top_ns = c;
 	var sec_ns = false;
 	var breadcrumbs = [];
+	var group = c.group;
 	while(!top_ns.parent.empty() && compounds[top_ns.parent]) {
 		sec_ns = top_ns;
 		top_ns = compounds[top_ns.parent];
 		breadcrumbs.pushFront(top_ns.name + ":" + top_ns.permalink);
+		if(group.empty())
+			group = top_ns.group;
 	}
+	group = group.empty() ? void : compounds[group];
 	var category = top_ns.name;
 	if(top_ns.location.contains("/EScript/"))
 		category = "EScript";
-	
-	var group;
 		
+	var show_in_toc = true;//c.kind == 'namespace' || c.kind == 'group' || !c.group.empty();
+	
 	var header = {
 		"title" : quoted(c.name),
 		"permalink" : c.permalink,
 		"author" : "Generated using <a href=\"https://github.com/MeisterYeti/WhatsUpDoc\">WhatsUpDoc</a>",
 		"category" : quoted(category),
-		"show_in_toc" : true,
+		"show_in_toc" : show_in_toc,
 		"sidebar" : "e_api_sidebar",
 		"layout" : "e_api",
 		"api_type" : c.kind,
@@ -164,14 +165,16 @@ T.writeCompound ::= fn(c) {
 	};
 	
 	if(group)
-		header["subcategory"] = quoted(group);
+		header["subcategory"] = quoted(group.name);
 	else if(sec_ns && (sec_ns != c || !sec_ns.children.empty()))
 		header["subcategory"] = quoted(sec_ns.name);
 		
-	if(c == top_ns)
+	if(c.kind == "group")
 		header["order"] = 0;
-	else if(c == sec_ns && !c.children.empty())
+	else if(c == top_ns)
 		header["order"] = 1;
+	else if(c == sec_ns && !c.children.empty())
+		header["order"] = 2;
 	
 	header["api_location"] = quoted(c.location);
 		
@@ -199,6 +202,11 @@ T.writeCompound ::= fn(c) {
 		content += "\n\n";
 	}*/
 	
+	content += "## Description\n\n";
+	content += c.description;
+	content += "\n\n";
+	
+	var memberCompare = fn(a,b) { return a.name < b.name; };
 	var namespaces = [];
 	var types = [];
 	foreach(c.children as var ref) {
@@ -210,12 +218,14 @@ T.writeCompound ::= fn(c) {
 				types += child;
 		}
 	}
+	namespaces.sort(memberCompare);
+	types.sort(memberCompare);
 	
 	if(!namespaces.empty()) {
 		content += "## Namespaces\n\n";
 		content += "|\n| ------- | ----------------- |\n";
 		foreach(namespaces as var ns)
-			content += "| " + ns.kind + " | " + mdLink(ns.permalink, ns.name) + " |\n";
+			content += "| " + ns.kind + " | " + mdLink(ns.permalink, ns.fullname) + " |\n";
 		content += "{: .nohead }\n\n";
 	}
 	
@@ -223,37 +233,49 @@ T.writeCompound ::= fn(c) {
 		content += "## Types\n\n";
 		content += "|\n| ------- | ----------------- |\n";
 		foreach(types as var t)
-			content += "| " + t.kind + " | " + mdLink(t.permalink, t.name) + " |\n";
+			content += "| " + t.kind + " | " + mdLink(t.permalink, t.fullname) + " |\n";
 		content += "{: .nohead }\n\n";
 	}
 	
-	if(!c.constants.empty()) {
-		content += "## Attributes\n\n";		
-		content += "|\n";
-		content += "| ------: | ----------------- |\n";
-		foreach(c.constants as var m) {
-			var ref = m.cpp.empty() ? void : apiRefs[m.cpp];
-			if(ref)
-				content += "| **" + mdLink(ref, m.name) + "** | |\n";
-			else
-				content += "| **" + m.name + "** | |\n";
+	var sections = new Map;
+	var sectionNames = [];
+	foreach(c.member as var m) {
+		if(!m.group.empty()) {
+			if(!sections[m.group]) {
+				sections[m.group] = [];
+				sectionNames += m.group;
+			}
+			sections[m.group] += m;
+		} else if(m.kind == "const") {
+			if(!sections["Attributes"]) {
+				sections["Attributes"] = [];
+				sectionNames += "Attributes";
+			}
+			sections["Attributes"] += m;
+		} else if(m.kind == "function") {
+			if(!sections["Functions"]) {
+				sections["Functions"] = [];
+				sectionNames += "Functions";
+			}
+			sections["Functions"] += m;
 		}
-		content += "{: .nohead }\n";
 	}
-		
-	if(!c.functions.empty()) {
-		content += "## Functions\n\n";		
+	sectionNames.sort();
+	
+	foreach(sectionNames as var sn) {
+		content += "## " + sn + "\n\n";		
 		content += "|\n";
 		content += "| ------: | ----------------- |\n";
-		foreach(c.functions as var f) {
-			var p = createParamList(f.minParams, f.maxParams);
-			var ref = f.cpp.empty() ? void : apiRefs[f.cpp];
-			if(ref)
-				content += "| **" + mdLink(ref, f.name) + "**(" + p + ") | " + escape(f.comment) + " |\n";
-			else
-				content += "| **" + f.name + "**(" + p + ") | " + escape(f.comment) + " |\n";
+		sections[sn].sort(memberCompare);
+		foreach(sections[sn] as var m) {
+			var param = m.kind == "function" ? createParamList(m.minParams, m.maxParams) : "";
+			var ref = m.cpp.empty() ? void : apiRefs[m.cpp];
+			var name = (c.kind != 'type') ? m.fullname : m.name;
+			name = ref ? mdLink(ref, name) : name;
+			name = m.deprecated ? ("~~" + name + "~~") : ("**" + name + "**");
+			content += "| " + name + param + " | " + m.description + " |\n";
 		}
-		content += "{: .nohead .nowrap1 }\n";
+		content += "{: .nohead .nowrap1 }\n\n";
 	}
 	
 	return content;
