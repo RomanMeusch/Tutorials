@@ -3,7 +3,7 @@
 # The project folder
 PROJECT_FOLDER   = API
 # Which folders should be searched for .cpp files
-INPUT            = EScript E_Geometry E_GUI E_MinSG E_Rendering E_Sound E_Util
+INPUT            = E_Geometry E_GUI E_MinSG E_Rendering E_Sound E_Util EScript
 # Additional include paths used by libclang
 INCLUDE          = Geometry GUI MinSG Rendering Sound Util
 # The output directory
