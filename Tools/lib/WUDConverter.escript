@@ -188,11 +188,12 @@ T.writeCompound ::= fn(c) {
 		content += "**Wrapped Object**: " + mdLink(c.ref, c.shortname) + ".\n\n";
 	}*/
 	
-	/*if(c.inherits) {
+	if(!c.base.empty()) {
+		var base = compounds[c.base];
 		content += "#### Inherits\n\n";
-		content += "* " + mdLink(c.inherits.id, c.inherits.name) + "\n";
+		content += "* " + mdLink(base.permalink, base.fullname) + "\n";
 		content += "\n\n";
-	}*/
+	}
 	
 	/*if(!c.inherited.empty()) {
 		content += "#### Inherited\n\n";
@@ -202,9 +203,11 @@ T.writeCompound ::= fn(c) {
 		content += "\n\n";
 	}*/
 	
-	content += "## Description\n\n";
-	content += c.description;
-	content += "\n\n";
+	if(!c.description.empty()) {
+		content += "## Description\n\n";
+		content += c.description;
+		content += "\n\n";
+	}
 	
 	var memberCompare = fn(a,b) { return a.name < b.name; };
 	var namespaces = [];
@@ -271,6 +274,7 @@ T.writeCompound ::= fn(c) {
 			var param = m.kind == "function" ? createParamList(m.minParams, m.maxParams) : "";
 			var ref = m.cpp.empty() ? void : apiRefs[m.cpp];
 			var name = (c.kind != 'type') ? m.fullname : m.name;
+			name = escape(name);
 			name = ref ? mdLink(ref, name) : name;
 			name = m.deprecated ? ("~~" + name + "~~") : ("**" + name + "**");
 			content += "| " + name + param + " | " + m.description + " |\n";
