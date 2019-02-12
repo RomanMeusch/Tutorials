@@ -31,7 +31,7 @@ T.addToTOC ::= fn(String file) {
 	return true;
 };
 
-T.addEntry ::= fn(title, category, link, subcategory=void, order=void, published=void) {
+/*T.addEntry ::= fn(title, category, link, subcategory=void, order=void, published=void) {
 	var entry = new ExtObject({
 			$title : title,
 			$category : category,
@@ -44,7 +44,7 @@ T.addEntry ::= fn(title, category, link, subcategory=void, order=void, published
 	if(published!=void)
 		entry.published := published;
 	entries += entry;
-};
+};*/
 
 T.parseFrontmatter @(private) ::= fn(String input) {
 	if(!input.beginsWith("---"))
@@ -74,21 +74,18 @@ T.parseFrontmatter @(private) ::= fn(String input) {
 
 T.checkFields @(private) ::= fn(entry) {
 	// required fields
-	foreach([$title, $permalink, $category] as var field) {
+	foreach([$title, $permalink] as var field) {
 		if(!entry.isSet(field)) {
 			outln("WARNING: missing required field '", field ,"' in frontmatter of file '", entry.file, "'");
 			return false;
 		}
 	}
 	// update optional fields	
-	if(!entry.isSet($entries))
-		entry.entries := [];
 	if(entry.isSet($order))
 		entry.order = entry.order.toNumber();
 	else
 		entry.order := 10000;
-	if(!entry.isSet($subcategory))
-		entry.subcategory := void;
+	
 	if(!entry.isSet($published))
 		entry.published := true;
 	else
@@ -97,112 +94,98 @@ T.checkFields @(private) ::= fn(entry) {
 		entry.show_in_toc := true;
 	else
 		entry.show_in_toc := entry.show_in_toc.toLower() == "true";
+	if(!entry.published)
+		entry.show_in_toc = false;
+		
+	if(!entry.isSet($path)) {
+		var cat = entry.isSet($category) ? entry.category : void;
+		var subcat = entry.isSet($subcategory) ? entry.subcategory : void;
+		if(!cat)
+			entry.path := "";
+		else if(!subcat)
+			entry.path := cat;
+		else
+			entry.path := cat + "->" + subcat;
+	}
+	
 	if(!entry.isSet($sidebar))
 		entry.sidebar := "home_sidebar";
 	return true;
 };
 
-T.buildTOC ::= fn(sidebar="home_sidebar") {
-	var toc = [];
-	var categories = new Map;
-	var subcategories = new Map;
-	
+T.buildTOC ::= fn(sidebar, product) {
+	var toc = new ExtObject({
+		'title' : product,
+		'url' : void,
+		'order' : 10000,
+		'items' : [],
+	});
+		
 	foreach(entries as var entry) {
-		if(!checkFields(entry))
+		if(!checkFields(entry) || !entry.show_in_toc || entry.sidebar != sidebar)
 			continue;
-		
-		if(!entry.published || !entry.show_in_toc)
-			continue;
-			
-		if(entry.sidebar != sidebar)
-			continue;
-		
-		var catOrder = 10000;
-		var category = entry.category;
-		if(category.contains("@")) {
-			[category, catOrder] = category.split("@");
-			catOrder = catOrder.toNumber();
-		}
-	
-		var subCatOrder = 10000;
-		var subcategory = entry.subcategory;
-		if(subcategory && subcategory.contains("@")) {
-			[subcategory, subCatOrder] = subcategory.split("@");
-			subCatOrder = subCatOrder.toNumber();
-		}
 				
-		var catEntry = categories[category];
-		if(!catEntry) {
-			catEntry = new ExtObject({
-				$title : category,
-				$order : catOrder,
-				$entries : [],
-				$permalink : void,
-			});
-			categories[category] = catEntry;
-			toc += catEntry;
-		}
-		catEntry.order = [catEntry.order, catOrder].min();
-		
-		if(subcategory) {
-			var subCatEntry = subcategories[category+subcategory];
-			if(!subCatEntry) {
-				subCatEntry = new ExtObject({
-					$title : subcategory,
-					$order : subCatOrder,
-					$entries : [],
-					$permalink : void,
-				});
-				subcategories[category+subcategory] = subCatEntry;
-				catEntry.entries += subCatEntry;
+		var path = entry.path.split("->");
+		var parent = toc;
+		foreach(path as var p) {
+			p = p.trim();
+			if(p.empty())
+				continue;
+			var order = 10000;
+			if(p.contains("@")) {
+				[p, order] = p.split("@");
+				order = order.toNumber();
+				p = p.trim();
 			}
-			subCatEntry.order = [subCatEntry.order, subCatOrder].min();
-			subCatEntry.entries += entry;
-		} else {
-			catEntry.entries += entry;
-		}
-	}
-	
-	toc.sort(fn(a,b) { return a.order < b.order || (a.order == b.order && a.title < b.title); });
-	foreach(toc as var cat) {
-		cat.entries.sort(fn(a,b) { return a.order < b.order || (a.order == b.order && a.title < b.title); });
-		if(cat.entries.front().title == cat.title)
-			cat.entries.front().title = '"<b>Overview</b>"';
-		foreach(cat.entries as var entry) {
-			if(entry.entries.count() > 0) {
-				entry.entries.sort(fn(a,b) { return a.order < b.order || (a.order == b.order && a.title < b.title); });
-				if(entry.entries.count() == 1) {
-					entry.permalink = entry.entries.front().permalink;
-					entry.entries.clear();
-				} else if(entry.entries.front().title == entry.title) {
-					entry.entries.front().title = '"<b>Overview</b>"';
+			
+			// find entry
+			var items = false;
+			foreach(parent.items as var f) {
+				if(f.title == p) {
+					items = f;
+					break;
 				}
 			}
+			if(!items) {
+				items = new ExtObject({
+					'title' : p,
+					'url' : void,
+					'order' : order,
+					'items' : [],
+				});
+				parent.items += items;
+			}
+			items.order = [items.order, order].min();
+			parent = items;
 		}
+	
+		parent.items += new ExtObject({
+			'title' : entry.title,
+			'url' : entry.permalink,
+			'order' : entry.order,
+			'items' : [],
+		});
 	}
 	
+	var todo = [toc];
+	while(!todo.empty()) {
+		var entry = todo.popFront();
+		entry.items.sort(fn(a,b) { return a.order < b.order || (a.order == b.order && a.title < b.title); });
+		foreach(entry.items as var item)
+			todo += item;
+	}	
 	return toc;
 };
 
-T.toYAML ::= fn(toc, product="PADrend Tutorials") {
-	var yaml = "entries:\n- product: " + product + "\n  levels: one\n  folders:\n";
-	foreach(toc as var cat) {
-		yaml += "  - title: " + cat.title + "\n";
-		yaml += "    output: web\n";
-		yaml += "    folderitems:\n";
-		foreach(cat.entries as var subcat) {
-			yaml += "    - title: " + subcat.title + "\n";
-			yaml += "      output: web\n";
-			if(subcat.entries.count() > 0) {
-				yaml += "      subfolderitems:\n";
-				foreach(subcat.entries as var entry) {
-					yaml += "      - title: " + entry.title + "\n";
-					yaml += "        output: web\n";
-					yaml += "        url: /" + entry.permalink + "\n";
-				}
-			} else {
-				yaml += "      url: /" + subcat.permalink + "\n";
-			}
+T.toYAML ::= fn(toc, indent=0) {
+	var s = " " * indent;
+	var yaml = "title: " + toc.title + "\n";
+	if(toc.items.empty()) {
+		yaml += s + "url: /" + toc.url + "\n";
+	} else {
+		yaml += s + "items:\n";
+		foreach(toc.items as var item) {
+			yaml += s + "- " + thisFn(item, indent+2);
 		}
 	}
 	return yaml;

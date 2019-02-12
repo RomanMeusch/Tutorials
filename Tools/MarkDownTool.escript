@@ -132,8 +132,8 @@ foreach(files as var file) {
 
 if(tocFile) {
 	var sidebar = tocFile.split("/").back().split("\\").back().replace(".yml","");
-	var toc = tocBuilder.buildTOC(sidebar);
-	var yaml = tocBuilder.toYAML(toc, product);
+	var toc = tocBuilder.buildTOC(sidebar, product);
+	var yaml = tocBuilder.toYAML(toc);
 	IO.saveTextFile(tocFile, yaml);
 }
 	

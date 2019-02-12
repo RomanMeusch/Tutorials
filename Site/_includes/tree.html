@@ -1,0 +1,22 @@
+
+{% for item in tree %}
+  {% if page.url == item.url %}
+    <li class="active">
+  {% else %}
+    <li>
+  {% endif %}
+  {% if item.items %}
+    <a href="#" style="padding-left:{{indent}}px">{{ item.title }}</a>
+    <ul>
+      {% assign indent = indent | plus: 10 %}
+      {% assign tree = item.items %}
+      {% include tree.html %}
+      {% assign indent = indent | minus: 10 %}
+    </ul>
+  {% elsif item.external_url %}
+    <a href="{{item.external_url}}" target="_blank" style="padding-left:{{indent}}px">{{item.title}}</a>
+  {% else %}
+    <a href="{{item.url | relative_url}}" style="padding-left:{{indent}}px">{{item.title}}</a>
+  {% endif %}
+  </li>
+{% endfor %}
