@@ -1313,3 +1313,8 @@ table.api_label > tbody > tr > td {
 
 /* Mermaid */
 .language-mermaid { width: 100%; overflow-x: scroll; }
+
+/* Nav */
+#mysidebar .overview {
+  font-weight: bold;
+}

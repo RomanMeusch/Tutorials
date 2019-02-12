@@ -132,50 +132,41 @@ T.collectKeywords ::= fn(c) {
 
 T.writeCompound ::= fn(c) {	
 	var keywords = collectKeywords(c);
-	
-	var top_ns = c;
-	var sec_ns = false;
-	var breadcrumbs = [];
-	var group = c.group;
-	while(!top_ns.parent.empty() && compounds[top_ns.parent]) {
-		sec_ns = top_ns;
-		top_ns = compounds[top_ns.parent];
-		breadcrumbs.pushFront(top_ns.name + ":" + top_ns.permalink);
-		if(group.empty())
-			group = top_ns.group;
-	}
-	group = group.empty() ? void : compounds[group];
-	var category = top_ns.name;
-	if(top_ns.location.contains("/EScript/"))
-		category = "EScript";
 		
-	var show_in_toc = true;//c.kind == 'namespace' || c.kind == 'group' || !c.group.empty();
+	var parent = c;
+	var group = c.group;
+	var breadcrumbs = [];
+	var path = [];
+	while(!parent.parent.empty()) {
+		if(!parent.group.empty())
+			path.pushFront(compounds[parent.group].name);
+		parent = compounds[parent.parent];
+		path.pushFront(parent.name);
+		breadcrumbs.pushFront(parent.name + ":" + parent.permalink);
+	}	
+	if(c.location.contains("/EScript/"))
+		path.pushFront("EScript");
 	
+	if(c.kind == 'namespace' || c.kind == 'group')
+		path += c.name;
+		
 	var header = {
 		"title" : quoted(c.name),
 		"permalink" : c.permalink,
 		"author" : "Generated using <a href=\"https://github.com/MeisterYeti/WhatsUpDoc\">WhatsUpDoc</a>",
-		"category" : quoted(category),
-		"show_in_toc" : show_in_toc,
+		"show_in_toc" : true,
 		"sidebar" : "e_api_sidebar",
 		"layout" : "e_api",
-		"api_type" : c.kind,
+		"kind" : c.kind,
 		"breadcrumbs" : quoted(breadcrumbs.implode("|")),
 		"toc" : false,
 		"keywords" : keywords.implode(", "),
+		"path" : path.implode("->"),
+		"use_as_root" : (c.kind == 'namespace' || c.kind == 'group'),
 	};
 	
-	if(group)
-		header["subcategory"] = quoted(group.name);
-	else if(sec_ns && (sec_ns != c || !sec_ns.children.empty()))
-		header["subcategory"] = quoted(sec_ns.name);
-		
-	if(c.kind == "group")
-		header["order"] = 0;
-	else if(c == top_ns)
-		header["order"] = 1;
-	else if(c == sec_ns && !c.children.empty())
-		header["order"] = 2;
+	//if(c.kind == "group" || c.kind == "namespace")
+	//	header["order"] = 0;
 	
 	header["api_location"] = quoted(c.location);
 		

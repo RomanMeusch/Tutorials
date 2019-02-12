@@ -323,7 +323,7 @@ T.writeSection ::= fn(obj) {
 
 //----------------------
 	
-T.writeDocumentation ::= fn(m) {
+T.writeDocumentation ::= fn(m,c) {
 	switch(m.kind) {
 		case "function":
 		case "enum":
@@ -341,7 +341,8 @@ T.writeDocumentation ::= fn(m) {
 			return false;
 	}
 	
-	var s = "### <small>" + m.kind + "</small><br/> " + m.name + " {#" + m.id + "}\n\n";
+	var title = c.kind == 'group' ? m.name : (c.compoundname + "::" + m.name);
+	var s = "### <small>" + m.kind + "</small><br/> " + title + " {#" + m.id + "}\n\n";
 		
 	// labels
 	s += "| " + m.prot + " |";
@@ -401,15 +402,15 @@ T.writeDocumentation ::= fn(m) {
 	
 	// enum table
 	if(m.kind == "enum") {
-		s += "| Enumerator |    | Description |\n";
-		s += "| ---------- | -- | ----------- |\n";
+		var enumTbl = new MarkdownTable(true);
+		enumTbl.addRow("Enumerator", "", "Description");
 		foreach(m.enumvalue as var enum) {
 			var descr = toMarkdown(enum.getData('detaileddescription')).trim();
 			if(descr.empty())
 				descr = toMarkdown(enum.getData('briefdescription')).trim();
-			s += toMarkdown(enum.getData('name')).trim() + " | " + toMarkdown(enum.getData('initializer')) + " | " + descr + " |\n";
+			enumTbl.addRow(toMarkdown(enum.getData('name')).trim(), toMarkdown(enum.getData('initializer')), descr);
 		}
-		s += "\n\n";
+		s += enumTbl.render();
 	}
 					
 	// description line
@@ -445,46 +446,52 @@ T.writeCompound ::= fn(c) {
 	
 	var brief = toMarkdown(c.briefdescription).trim();
 	var keywords = collectKeywords(c);
-	var show_in_toc = c.kind == 'namespace' || c.kind == 'group' || c.group;
+	var show_in_toc = c.kind != 'struct';
 	
-	var top_ns = c;
-	var sec_ns = false;
+	var parent = c;
 	var group = c.group;
 	var breadcrumbs = [];
-	while(top_ns.parentNamespace) {
-		sec_ns = top_ns;
-		top_ns = top_ns.parentNamespace;
-		breadcrumbs.pushFront(top_ns.shortname + ":" + top_ns.id);
-		if(!group)
-			group = top_ns.group;
+	var path = [];
+	while(parent.parentNamespace) {
+		if(parent.group)
+			path.pushFront(parent.group.title);
+		parent = parent.parentNamespace;
+		path.pushFront(parent.shortname);
+		breadcrumbs.pushFront(parent.shortname + ":" + parent.id);
 	}
-		
+	if(c.kind == 'namespace' || c.kind == 'group')
+		path += c.shortname;
+	
+	if(path.empty())
+		return false;
+	
 	var header = {
 		"title" : quoted(c.shortname),
 		"permalink" : c.id,
-		//"summary" : brief.empty() ? false : quoted(brief),
 		"author" : "Generated using <a href=\"http://www.doxygen.nl/\">Doxygen</a>",
-		"category" : quoted(top_ns.shortname),
 		"show_in_toc" : show_in_toc,
 		"sidebar" : "api_sidebar",
 		"layout" : "api",
-		"api_type" : c.kind,
+		"kind" : c.kind,
 		"breadcrumbs" : quoted(breadcrumbs.implode("|")),
 		"toc" : false,
 		"keywords" : keywords.implode(", "),
+		"path" : path.implode("->"),
+		"use_as_root" : (c.kind == 'namespace' || c.kind == 'group'),
 	};
 	
-	if(group)
+	/*if(group)
 		header["subcategory"] = quoted(group.title);
 	else if(sec_ns && (sec_ns != c || !sec_ns.innernamespace.empty()))
-		header["subcategory"] = quoted(sec_ns.shortname);
-		
+		header["subcategory"] = quoted(sec_ns.shortname);*/
+	
+	//if(c.kind == 'namespace' || c.kind == 'group')
+	//	header["order"] = 0;
+	/*
 	if(c.kind == "group")
 		header["order"] = 0;
-	else if(c == top_ns)
-		header["order"] = 1;
-	else if(c == sec_ns && !c.innernamespace.empty())
-		header["order"] = 2;
+	else if(c == parent)
+		header["order"] = 1;*/
 	
 	if(c.location && c.kind != 'namespace')
 		header["api_location"] = quoted(c.location.file);
@@ -571,24 +578,24 @@ T.writeCompound ::= fn(c) {
 	
 	if(!c.innernamespace.empty()) {
 		var s = "## Namespaces\n\n";
-		s += "|\n| ------- | ----------------- |\n";
+		var table = new MarkdownTable(false);
+		table.addClass(".nohead");
 		foreach(c.innernamespace as var nsref) {
 			var ns = nsref.ref;
-			s += "| namespace | " + mdLink(ns.id, ns.compoundname) + " <br/> " + toMarkdown(ns.briefdescription).trim() + " |\n";
+			table.addRow("namespace", mdLink(ns.id, ns.compoundname) + " <br/> " + toMarkdown(ns.briefdescription).trim());
 		}
-		s += "{: .nohead }\n";
-		content += s + "\n\n";
+		content += table.render();
 	}
 	
 	if(!c.innerclass.empty()) {
 		var s = "## Classes\n\n";
-		s += "|\n| ------- | ----------------- |\n";
+		var table = new MarkdownTable(false);
+		table.addClass(".nohead");
 		foreach(c.innerclass as var cref) {
 			var cl = cref.ref;
-			s += "| " + cl.kind + " | " + mdLink(cl.id, cl.compoundname) + " <br/> " + toMarkdown(cl.briefdescription).trim() + " |\n";
+			table.addRow(cl.kind, mdLink(cl.id, cl.compoundname) + " <br/> " + toMarkdown(cl.briefdescription).trim());
 		}
-		s += "{: .nohead }\n";
-		content += s + "\n\n";
+		content += table.render();
 	}
 	
 	foreach(c.sectiondef as var s) {
@@ -604,7 +611,7 @@ T.writeCompound ::= fn(c) {
 		content += "## Documentation\n\n";
 		foreach(c.sectiondef as var s) {
 			foreach(s.memberdef as var m) {
-				var doc = writeDocumentation(m);
+				var doc = writeDocumentation(m,c);
 				if(doc) {
 					content += doc + "\n\n";
 				}
@@ -633,7 +640,7 @@ T.updateHierarchy ::= fn() {
 	}
 	
 	foreach(groups as var id, var g) {
-		g.group = g;
+		//g.group = g;
 		foreach(g.innernamespace as var nsref)
 			nsref.ref.group = g;
 		foreach(g.innerclass as var cref) {

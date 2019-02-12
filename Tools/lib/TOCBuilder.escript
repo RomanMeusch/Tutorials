@@ -110,6 +110,15 @@ T.checkFields @(private) ::= fn(entry) {
 	
 	if(!entry.isSet($sidebar))
 		entry.sidebar := "home_sidebar";
+	
+	if(!entry.isSet($kind))
+		entry.kind := "page";
+		
+	if(!entry.isSet($use_as_root))
+		entry.use_as_root := false;
+	else
+		entry.use_as_root := entry.use_as_root.toLower() == "true";
+		
 	return true;
 };
 
@@ -117,7 +126,8 @@ T.buildTOC ::= fn(sidebar, product) {
 	var toc = new ExtObject({
 		'title' : product,
 		'url' : void,
-		'order' : 10000,
+		'order' : 0,
+		'kind' : 'root',
 		'items' : [],
 	});
 		
@@ -131,7 +141,7 @@ T.buildTOC ::= fn(sidebar, product) {
 			p = p.trim();
 			if(p.empty())
 				continue;
-			var order = 10000;
+			var order = 1000;
 			if(p.contains("@")) {
 				[p, order] = p.split("@");
 				order = order.toNumber();
@@ -151,6 +161,7 @@ T.buildTOC ::= fn(sidebar, product) {
 					'title' : p,
 					'url' : void,
 					'order' : order,
+					'kind' : 'folder',
 					'items' : [],
 				});
 				parent.items += items;
@@ -158,13 +169,20 @@ T.buildTOC ::= fn(sidebar, product) {
 			items.order = [items.order, order].min();
 			parent = items;
 		}
-	
-		parent.items += new ExtObject({
-			'title' : entry.title,
-			'url' : entry.permalink,
-			'order' : entry.order,
-			'items' : [],
-		});
+		
+		if(entry.use_as_root) {
+			parent.url = entry.permalink;
+			parent.order = [parent.order, entry.order].min();
+			parent.kind = entry.kind;
+		} else {
+			parent.items += new ExtObject({
+				'title' : entry.title,
+				'url' : entry.permalink,
+				'order' : entry.order,
+				'kind' : entry.kind,
+				'items' : [],
+			});
+		}
 	}
 	
 	var todo = [toc];
@@ -180,9 +198,11 @@ T.buildTOC ::= fn(sidebar, product) {
 T.toYAML ::= fn(toc, indent=0) {
 	var s = " " * indent;
 	var yaml = "title: " + toc.title + "\n";
-	if(toc.items.empty()) {
+	if(toc.url)
 		yaml += s + "url: /" + toc.url + "\n";
-	} else {
+	if(toc.kind)
+		yaml += s + "kind: " + toc.kind + "\n";
+	if(!toc.items.empty()) {
 		yaml += s + "items:\n";
 		foreach(toc.items as var item) {
 			yaml += s + "- " + thisFn(item, indent+2);
