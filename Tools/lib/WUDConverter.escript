@@ -62,6 +62,7 @@ static escape = fn(s) {
 		"\n" : "<br/>",
 		"|" : "\\|",
 		"*" : "\\*",
+		"--" : "\\-\\-",
 	});
 };
 
@@ -188,20 +189,48 @@ T.writeCompound ::= fn(c) {
 		content += "**Wrapped Object**: " + mdLink(c.ref, c.shortname) + ".\n\n";
 	}*/
 	
-	if(!c.base.empty()) {
-		var base = compounds[c.base];
-		content += "#### Inherits\n\n";
-		content += "* " + mdLink(base.permalink, base.fullname) + "\n";
-		content += "\n\n";
-	}
-	
-	/*if(!c.inherited.empty()) {
-		content += "#### Inherited\n\n";
-		foreach(c.inherited as var obj) {
-			content += "* " + mdLink(obj.id, obj.name) + "\n";
+	if(c.kind == "type") {		
+		// build inheritance graph
+		content += "#### Inheritance Graph\n\n";
+		content += "```mermaid\ngraph BT\n";
+		content += "\t" + c.name + "\n";
+		if(!c.base.empty()) {
+			var base = compounds[c.base];
+			content += "\t" + c.name + " --> " + base.name + "\n";
 		}
-		content += "\n\n";
-	}*/
+		foreach(c.subtypes as var id) {
+			var obj = compounds[id];
+			content += "\t" + obj.name + " --> " + c.name + "\n";
+		}
+		
+		// make nodes clickable
+		content += "\tclick " + c.name + " " + quoted(c.permalink) + "\n";
+		if(!c.base.empty()) {
+			var base = compounds[c.base];
+			content += "\tclick " + base.name + " " + quoted(base.permalink) + "\n";
+		}
+		foreach(c.subtypes as var id) {
+			var obj = compounds[id];
+			content += "\tclick " + obj.name + " " + quoted(obj.permalink) + "\n";
+		}
+		content += "```\n\n";
+		
+		/*if(!c.base.empty()) {
+			var base = compounds[c.base];
+			content += "#### Inherits\n\n";
+			content += "* " + mdLink(base.permalink, base.fullname) + "\n";
+			content += "\n\n";
+		}
+		
+		if(!c.subtypes.empty()) {
+			content += "#### Inherited\n\n";
+			foreach(c.subtypes as var id) {
+				var obj = compounds[id];
+				content += "* " + mdLink(obj.permalink, obj.fullname) + "\n";
+			}
+			content += "\n\n";
+		}*/
+	}
 	
 	if(!c.description.empty()) {
 		content += "## Description\n\n";
@@ -226,18 +255,20 @@ T.writeCompound ::= fn(c) {
 	
 	if(!namespaces.empty()) {
 		content += "## Namespaces\n\n";
-		content += "|\n| ------- | ----------------- |\n";
+		var table = new MarkdownTable(false);
+		table.addClass(".nohead");
 		foreach(namespaces as var ns)
-			content += "| " + ns.kind + " | " + mdLink(ns.permalink, ns.fullname) + " |\n";
-		content += "{: .nohead }\n\n";
+			table.addRow(ns.kind, mdLink(ns.permalink, ns.fullname));
+		content += table.render();
 	}
 	
 	if(!types.empty()) {
 		content += "## Types\n\n";
-		content += "|\n| ------- | ----------------- |\n";
+		var table = new MarkdownTable(false);
+		table.addClass(".nohead");
 		foreach(types as var t)
-			content += "| " + t.kind + " | " + mdLink(t.permalink, t.fullname) + " |\n";
-		content += "{: .nohead }\n\n";
+			table.addRow(t.kind, mdLink(t.permalink, t.fullname));
+		content += table.render();
 	}
 	
 	var sections = new Map;
@@ -266,9 +297,9 @@ T.writeCompound ::= fn(c) {
 	sectionNames.sort();
 	
 	foreach(sectionNames as var sn) {
-		content += "## " + sn + "\n\n";		
-		content += "|\n";
-		content += "| ------: | ----------------- |\n";
+		content += "## " + sn + "\n\n";
+		var table = new MarkdownTable(false, Align.RIGHT, Align.LEFT);
+		table.addClass(".nohead", ".nowrap1");		
 		sections[sn].sort(memberCompare);
 		foreach(sections[sn] as var m) {
 			var param = m.kind == "function" ? createParamList(m.minParams, m.maxParams) : "";
@@ -277,12 +308,24 @@ T.writeCompound ::= fn(c) {
 			name = escape(name);
 			name = ref ? mdLink(ref, name) : name;
 			name = m.deprecated ? ("~~" + name + "~~") : ("**" + name + "**");
-			content += "| " + name + param + " | " + m.description + " |\n";
+			table.addRow(name + param, m.description);
 		}
-		content += "{: .nohead .nowrap1 }\n\n";
+		content += table.render();
 	}
 	
 	return content;
+};
+
+//----------------------
+
+T.buildInheritanceGraph ::= fn() {
+	foreach(compounds as var id, var c) {
+		if(!c.base.empty()) {
+			var base = compounds[c.base];
+			if(base)
+				base.subtypes += id;
+		}
+	}
 };
 
 //----------------------
@@ -294,6 +337,7 @@ T.writeMarkdown ::= fn(path) {
 	}
 	if(!path.endsWith("/"))
 		path += "/";
+	buildInheritanceGraph();
 	foreach(compounds as var id, var c) {
 		var md = writeCompound(c);
 		if(md)
@@ -316,6 +360,7 @@ T.parseFile ::= fn(file) {
 	}
 	var fileName = file.split("/").back().split("\\").back().replace(".json","");
 	compound.permalink := "escript_" + fileName;
+	compound.subtypes := [];
 	compounds[compound.id] = compound;
 	return compound;
 };

@@ -13,6 +13,19 @@
 </footer>
 
 <script>
-mermaid.initialize({startOnLoad:true});
+var config = {
+  startOnLoad:true,
+  theme: "neutral",
+  flowchart: {
+    useMaxWidth:false,
+    htmlLabels:true
+  }
+};
+mermaid.initialize(config);
 mermaid.init(undefined, $(".language-mermaid"));
+// force width of mermaid container to be maxWidth
+$(function() {
+  var maxWidth = $(".language-mermaid > svg").css("max-width");
+  $(".language-mermaid > svg").attr({"width" : maxWidth});
+});
 </script>

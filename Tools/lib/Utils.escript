@@ -62,3 +62,71 @@ GLOBALS.mapToObj := fn(obj) {
   }
   return obj;
 };
+
+GLOBALS.Align := new Namespace;
+Align.LEFT := 0;
+Align.RIGHT := 1;
+Align.CENTER := 2;
+
+GLOBALS.MarkdownTable := new Type;
+var T = GLOBALS.MarkdownTable;
+T.rows @(init) := Array;
+T.align @(init) := Array;
+T.colSize @(init) := Array;
+T.classes @(init) := Array;
+T.useTitle := false;
+T._constructor ::= fn(_useTitle, _align...) {
+  this.align = _align;
+  this.useTitle = _useTitle;
+};
+T.addClass ::= fn(cl...) {
+  this.classes.append(cl);
+};
+T.addRow ::= fn(values...) {
+  while(colSize.count() < values.count())
+    colSize += 0;
+  while(align.count() < values.count())
+    align += Align.LEFT;
+  foreach(values as var i, var v) {
+    colSize[i] = [colSize[i], v.toString().length()].max();
+  }
+  this.rows += values;
+};
+T.renderRow @(private) ::= fn(i) {
+  var s = "| ";
+  foreach(rows[i] as var j, var v) {
+    s += v.toString();
+    var len = v.toString().length();
+    s += " " * (colSize[j] - len);
+    s += " | ";
+  }
+  s += "\n";
+  return s;
+};
+T.render ::= fn() {
+  var s = "";
+  if(rows.empty())
+    return s;
+  if(useTitle)
+    s += renderRow(0);
+  else 
+    s += "|\n";
+  s += "| ";
+  foreach(colSize as var i, var l) {
+    s += (align[i] == Align.CENTER) ? ":" : "-";
+    if(l>2) s += "-" * (l - 2);
+    s += (align[i] != Align.LEFT) ? ":" : "-";
+    s += " | ";
+  }
+  s += "\n";
+  for(var i=0; i<rows.count(); ++i)
+    s += renderRow(i);
+  if(!classes.empty()) {
+    s += "{: ";
+    foreach(classes as var cl)
+      s += cl + " ";
+    s += "}\n";
+  }
+  s += "\n";
+  return s;
+};

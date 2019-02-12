@@ -511,24 +511,56 @@ T.writeCompound ::= fn(c) {
 		content += "\n{:.api_label}\n\n";
 	}
 
-	if(!c.basecompoundref.empty()) {
-		content += "#### Inherits\n\n";
-		foreach(c.basecompoundref as var ref) {
-			var base = compounds[ref.refid];
-			if(base)
-				content += "* " + mdLink(ref.refid, base.compoundname) + "\n";
-		}
-		content += "\n\n";
-	}
 	
-	if(!c.derivedcompoundref.empty()) {
-		content += "#### Inherited\n\n";
-		foreach(c.derivedcompoundref as var ref) {
-			var derived = compounds[ref.refid];
-			if(derived)
-				content += "* " + mdLink(ref.refid, derived.compoundname) + "\n";
+	if(c.kind == "class" || c.kind == "type") {		
+		// build inheritance graph
+		content += "#### Inheritance Graph\n\n";
+		content += "```mermaid\ngraph BT\n";
+		content += "\t" + c.shortname + "\n";
+		foreach(c.basecompoundref as var ref) {
+			var obj = compounds[ref.refid];
+			if(obj)
+				content += "\t" + c.shortname + " --> " + obj.shortname + "\n";
 		}
-		content += "\n\n";
+		foreach(c.derivedcompoundref as var ref) {
+			var obj = compounds[ref.refid];
+			if(obj)
+				content += "\t" + obj.shortname + " --> " + c.shortname + "\n";
+		}
+		
+		// make nodes clickable
+		content += "\tclick " + c.shortname + " " + quoted(c.id) + "\n";
+		foreach(c.basecompoundref as var ref) {
+			var obj = compounds[ref.refid];
+			if(obj)
+				content += "\tclick " + obj.shortname + " " + quoted(obj.id) + "\n";
+		}
+		foreach(c.derivedcompoundref as var ref) {
+			var obj = compounds[ref.refid];
+			if(obj)
+				content += "\tclick " + obj.shortname + " " + quoted(obj.id) + "\n";
+		}
+		content += "```\n\n";
+		
+		/*if(!c.basecompoundref.empty()) {
+			content += "#### Inherits\n\n";
+			foreach(c.basecompoundref as var ref) {
+				var base = compounds[ref.refid];
+				if(base)
+					content += "* " + mdLink(ref.refid, base.compoundname) + "\n";
+			}
+			content += "\n\n";
+		}
+		
+		if(!c.derivedcompoundref.empty()) {
+			content += "#### Inherited\n\n";
+			foreach(c.derivedcompoundref as var ref) {
+				var derived = compounds[ref.refid];
+				if(derived)
+					content += "* " + mdLink(ref.refid, derived.compoundname) + "\n";
+			}
+			content += "\n\n";
+		}*/
 	}
 	
 	content += "## Description\n\n";
