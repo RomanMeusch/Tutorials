@@ -446,10 +446,9 @@ T.writeCompound ::= fn(c) {
 	
 	var brief = toMarkdown(c.briefdescription).trim();
 	var keywords = collectKeywords(c);
-	var show_in_toc = c.kind == 'namespace' || c.kind == 'group';
+	var show_in_toc = c.kind == 'namespace' || c.kind == 'group' || (c.kind == 'class' && c.group);
 	
 	var parent = c;
-	var group = c.group;
 	var breadcrumbs = [];
 	var path = [];
 	while(parent.parentNamespace) {
@@ -479,19 +478,6 @@ T.writeCompound ::= fn(c) {
 		"path" : path.implode("->"),
 		"use_as_root" : (c.kind == 'namespace' || c.kind == 'group'),
 	};
-	
-	/*if(group)
-		header["subcategory"] = quoted(group.title);
-	else if(sec_ns && (sec_ns != c || !sec_ns.innernamespace.empty()))
-		header["subcategory"] = quoted(sec_ns.shortname);*/
-	
-	//if(c.kind == 'namespace' || c.kind == 'group')
-	//	header["order"] = 0;
-	/*
-	if(c.kind == "group")
-		header["order"] = 0;
-	else if(c == parent)
-		header["order"] = 1;*/
 	
 	if(c.location && c.kind != 'namespace')
 		header["api_location"] = quoted(c.location.file);
