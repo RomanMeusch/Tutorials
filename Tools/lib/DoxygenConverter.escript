@@ -577,7 +577,7 @@ T.writeCompound ::= fn(c) {
 	content += "\n\n";
 	
 	if(!c.innernamespace.empty()) {
-		var s = "## Namespaces\n\n";
+		content += "## Namespaces\n\n";
 		var table = new MarkdownTable(false);
 		table.addClass(".nohead");
 		foreach(c.innernamespace as var nsref) {
@@ -588,7 +588,7 @@ T.writeCompound ::= fn(c) {
 	}
 	
 	if(!c.innerclass.empty()) {
-		var s = "## Classes\n\n";
+		content += "## Classes\n\n";
 		var table = new MarkdownTable(false);
 		table.addClass(".nohead");
 		foreach(c.innerclass as var cref) {
