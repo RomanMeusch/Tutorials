@@ -446,7 +446,7 @@ T.writeCompound ::= fn(c) {
 	
 	var brief = toMarkdown(c.briefdescription).trim();
 	var keywords = collectKeywords(c);
-	var show_in_toc = c.kind != 'struct';
+	var show_in_toc = c.kind == 'namespace' || c.kind == 'group';
 	
 	var parent = c;
 	var group = c.group;
