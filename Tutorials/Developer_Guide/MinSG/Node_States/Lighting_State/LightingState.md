@@ -4,9 +4,9 @@ permalink: lightingstate
 category: Developer Guide
 author: Florian Pieper
 license: cc-by-sa 4.0
-last_updated: 2017
-subcategory: MinSG - A Minimalist Scene Graph
-order: 3.3
+last_updated: May 28, 2019
+path: Developer Guide->MinSG - A Minimalist Scene Graph->States
+order: 3
 ---
 <!------------------------------------------------------------------------------------------------
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.

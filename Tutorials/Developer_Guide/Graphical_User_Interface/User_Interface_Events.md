@@ -1,11 +1,10 @@
 ---
 title: Handling User Interface Events
 permalink: handling_user_interface_events
-category: Developer Guide
 author: Henrik Heine
-last_updated: 2017
 license: cc-by-sa 4.0
-subcategory: Graphical User Interface
+last_updated: May 28, 2019
+path: Developer Guide->Graphical User Interface
 order: 1
 ---
 <!------------------------------------------------------------------------------------------------

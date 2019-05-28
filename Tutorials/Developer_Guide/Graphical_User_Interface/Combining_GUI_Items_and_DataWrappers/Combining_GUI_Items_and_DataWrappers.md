@@ -3,9 +3,8 @@ title: Combining GUI Items and DataWrappers
 permalink: combining_gui_items_and_datawrappers
 author: Florian Pieper
 license: cc-by-sa 4.0
-last_updated: 2017
-category: Developer Guide
-subcategory: Graphical User Interface
+last_updated: May 28, 2019
+path: Developer Guide->Graphical User Interface
 order: 2
 ---
 <!------------------------------------------------------------------------------------------------

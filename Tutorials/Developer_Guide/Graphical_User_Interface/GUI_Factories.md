@@ -1,10 +1,10 @@
 ---
 title: GUI Factories
 permalink: gui_factories
-category: Developer Guide
 author: Sascha Brandt
 license: cc-by-sa 4.0
-subcategory: Graphical User Interface@4
+last_updated: May 28, 2019
+path: Developer Guide->Graphical User Interface
 order: 0
 ---
 <!------------------------------------------------------------------------------------------------

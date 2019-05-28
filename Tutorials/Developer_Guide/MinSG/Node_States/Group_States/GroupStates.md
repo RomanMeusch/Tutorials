@@ -1,12 +1,11 @@
 ---
 title: Group States
 permalink: groupstates
-category: Developer Guide
 author: Stanislaw Eppinger
-last_updated: 2017
 license: cc-by-sa 4.0
-subcategory: MinSG - A Minimalist Scene Graph
-order: 3.6
+last_updated: May 28, 2019
+path: Developer Guide->MinSG - A Minimalist Scene Graph->States
+order: 2
 ---
 <!------------------------------------------------------------------------------------------------
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.

@@ -3,9 +3,8 @@ title: Changing the Render Target - Rendering to a Texture
 permalink: render_to_texture
 author: Florian Pieper
 license: cc-by-sa 4.0
-last_updated: 2017
-category: Developer Guide
-subcategory: Rendering
+last_updated: May 28, 2019
+path: Developer Guide->Rendering
 order: 2
 ---
 <!------------------------------------------------------------------------------------------------

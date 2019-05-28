@@ -3,9 +3,8 @@ title: A Simple Client-Server Program
 permalink: a_simple_client_server_program
 author: Henrik Heine
 license: cc-by-sa 4.0
-last_updated: 2017
-category: Developer Guide
-subcategory: Networking and the File System
+last_updated: May 28, 2019
+path: Developer Guide->Networking and the File System
 order: 2
 ---
 <!------------------------------------------------------------------------------------------------
