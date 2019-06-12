@@ -1278,6 +1278,31 @@ table.api_label > tbody > tr > td {
   color: #679DCE;
 }
 
+table.lang_label {
+  border-collapse: unset;
+  border: 0;
+  border-spacing: 5px 0px;
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+table.lang_label > tbody > tr > td:first-child {
+  padding: 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 10px;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+table.lang_label > tbody > tr > td {
+  padding: 0;
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  font-size: 10px;
+  color: #679DCE;
+}
+
 /* Back to top */
 #scroll {
     position:fixed;
@@ -1317,4 +1342,9 @@ table.api_label > tbody > tr > td {
 /* Nav */
 #mysidebar .overview {
   font-weight: bold;
+}
+
+/* Quote */
+blockquote {
+  font-size: 15px;
 }

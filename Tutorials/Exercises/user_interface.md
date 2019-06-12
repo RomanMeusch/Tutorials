@@ -1,6 +1,6 @@
 ---
 title: User Interface
-permalink: user_interface
+permalink: exercises_user_interface
 category: Exercises
 author: Sascha Brandt
 license: cc-by-sa 4.0

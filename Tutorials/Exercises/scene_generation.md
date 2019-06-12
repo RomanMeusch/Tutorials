@@ -1,6 +1,6 @@
 ---
 title: Scene Generation
-permalink: scene_generation
+permalink: exercises_scene_generation
 category: Exercises
 author: Sascha Brandt
 license: cc-by-sa 4.0

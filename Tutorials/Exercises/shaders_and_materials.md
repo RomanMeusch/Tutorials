@@ -1,6 +1,6 @@
 ---
 title: Shaders and Materials
-permalink: shaders_and_materials
+permalink: exercises_shaders_and_materials
 category: Exercises
 author: Sascha Brandt
 license: cc-by-sa 4.0
