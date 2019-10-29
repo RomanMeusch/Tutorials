@@ -1,5 +1,5 @@
 ---
-title: Creating a Scene using MinSG
+title: MinSG - A Minimalist Scene Graph
 permalink: minsg_overview
 author: Sascha Brandt
 license: cc-by-sa 4.0
@@ -9,7 +9,7 @@ use_as_root: true
 order: 2
 ---
 
-# MinSG
+## MinSG - A Minimalist Scene Graph
 MinSG stands for minimal scene graph and represents the scene graph of PADrend.
 Even it is stated to be minimal MinSG is very powerful.
 The graph can be created by different nodes.
@@ -17,7 +17,7 @@ This tutorial concentrates on two node types and gives a simple example of creat
 
 ## Node class hierarchy
 
-![Class hierarchy](nodes.png)
+![Class hierarchy](figures/node-uml.svg)
 
 The base class of scene graph nodes is called _Node_.
 It provides method that are common for all type of nodes.
