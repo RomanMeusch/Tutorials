@@ -3,7 +3,7 @@ title: Building PADrend from source
 summary: This tutorial describes how to build PADrend from source code.
 permalink: installation_guide
 author: Benjamin Eikel, Claudius Jähn, Ralf Petring, Sascha Brandt
-last_updated: August 8, 2018
+last_updated: October 30, 2019
 category: Installation Guide@0
 order: 0
 ---
@@ -75,8 +75,8 @@ For building PADrend the [Ninja](https://github.com/martine/ninja) build system 
 * _Configure_ -> Target: _Ninja_ -> _Specify native compilers_ -> C: `c:\mingw-w64\mingw64\bin\gcc.exe`; C++ `c:\mingw-w64\mingw64\bin\g++.exe`
 * You should now have a list of MinSG-Extensions you can build. Select the ones to compile. The following list is a recommendation if you don't know which ones to choose:
 	* MINSG_EXT_BLUE_SURFELS, MINSG_EXT_COLORCUBES , MINSG_EXT_EVALUATORS , MINSG_EXT_IMAGECOMPARE,  MINSG_EXT_PARTICLES , MINSG_EXT_SVS , MINSG_EXT_TRIANGULATION, MINSG_EXT_WAYPOINTS, MINSG_EXT_VISIBILITY_SUBDIVISION.
-* Setting the following compiler flags (`CMAKE_CXX_FLAGS`) is recommended:
-	` -pedantic -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align -Wlogical-op -Wredundant-decls -Wdisabled-optimization -Wstack-protector -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wabi -Wctor-dtor-privacy -Wstrict-null-sentinel -Wno-non-template-friend -Wold-style-cast -Woverloaded-virtual -Wno-pmf-conversions -Wsign-promo -Wmissing-declarations -Wno-abi`
+* Setting the following compiler flags (`CMAKE_CXX_FLAGS`) is recommended: 
+  `-pedantic -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align -Wlogical-op -Wredundant-decls -Wdisabled-optimization -Wstack-protector -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wabi -Wctor-dtor-privacy -Wstrict-null-sentinel -Wno-non-template-friend -Wold-style-cast -Woverloaded-virtual -Wno-pmf-conversions -Wsign-promo -Wmissing-declarations -Wno-abi`
 * Hit _Configure_ again and then _Generate_. The Ninja-makefile will be generated.
 * Open a powershell or cmd window.
 * Navigate into build folder, e.g.: `cd C:\PADrend`
@@ -93,8 +93,6 @@ For building PADrend the [Ninja](https://github.com/martine/ninja) build system 
 * If CMake-GUI complains about a missing `windres.exe`, check the path. The auto detection may fail here.
 * Instead of the built version of OpenAL32.dll, you may use the official [OpenAL-installer](http://www.openal.org/) version of the library. It provides better sound quality, but you have to install the OpenAL-Runtime (oalinst.exe) on your system in order to start PADrend.
 
-----
-
 ### Linux
 
 #### External libraries
@@ -105,7 +103,9 @@ But, we recommend installing the following (optional) libraries (Debian):
 [libarchive-dev](http://packages.debian.org/libarchive-dev)
 
 On Debian, you can install them using the following command:
-	sudo apt install libcurl4-openssl-dev libxml2-dev libarchive-dev
+```
+sudo apt install libcurl4-openssl-dev libxml2-dev libarchive-dev
+```
 
 #### Notes
 * When using OS X, you can check if there are development packages of the required libraries that you can install (e.g. by using [Fink](http://www.finkproject.org/) or [MacPorts](http://www.macports.org/)).
