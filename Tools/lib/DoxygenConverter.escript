@@ -441,20 +441,19 @@ T.collectKeywords ::= fn(c) {
 //----------------------
 
 T.writeCompound ::= fn(c) {
-	if(c.compoundname.beginsWith("std") || (c.kind == 'group' && !c.parentNamespace))
+	if(c.compoundname.beginsWith("std") || (c.kind == 'group' && !c.parent))
 		return false;
 	
 	var brief = toMarkdown(c.briefdescription).trim();
 	var keywords = collectKeywords(c);
-	var show_in_toc = c.kind == 'namespace' || c.kind == 'group' || (c.kind == 'class' && c.group);
 	
 	var parent = c;
 	var breadcrumbs = [];
 	var path = [];
-	while(parent.parentNamespace) {
-		if(parent.group)
-			path.pushFront(parent.group.title);
-		parent = parent.parentNamespace;
+	while(parent.parent) {
+		//if(parent.group)
+		//	path.pushFront(parent.group.title);
+		parent = parent.parent;
 		path.pushFront(parent.shortname);
 		breadcrumbs.pushFront(parent.shortname + ":" + parent.id);
 	}
@@ -468,7 +467,7 @@ T.writeCompound ::= fn(c) {
 		"title" : quoted(c.shortname),
 		"permalink" : c.id,
 		"author" : "Generated using <a href=\"http://www.doxygen.nl/\">Doxygen</a>",
-		"show_in_toc" : show_in_toc,
+		"show_in_toc" : c.show_in_toc,
 		"sidebar" : "api_sidebar",
 		"layout" : "api",
 		"kind" : c.kind,
@@ -611,47 +610,68 @@ T.writeCompound ::= fn(c) {
 //----------------------
 
 T.updateHierarchy ::= fn() {
+	
+	// set default hierarchy for all non-group-compounds
 	foreach(compounds as var id, var c) {
 		foreach(c.innernamespace as var e) {
 			e.ref := compounds[e.refid];
-			if(e.ref)
-				e.ref.parentNamespace = c;
+			if(e.ref && c.kind != 'group')
+				e.ref.parent = c;
 		}
 		foreach(c.innerclass as var e) {
 			e.ref := compounds[e.refid];
-			if(e.ref)
-				e.ref.parentNamespace = c;
+			if(e.ref && c.kind != 'group')
+				e.ref.parent = c;
+			if(c.kind == 'class')
+				e.ref.show_in_toc = false; // Don't show inner classes
 		}
-		c.group := false;
+		foreach(c.innergroup as var g) {
+			g.ref := compounds[g.refid];
+			if(g.ref)
+				g.ref.parent = c;
+		}
 	}
 	
+	// insert groups into hierarchy	
 	foreach(groups as var id, var g) {
-		//g.group = g;
-		foreach(g.innernamespace as var nsref)
-			nsref.ref.group = g;
 		foreach(g.innerclass as var cref) {
-			cref.ref.group = g;
-			if(!g.parentNamespace) {
-				var top_ns = cref.ref;
-				while(top_ns.parentNamespace)
-					top_ns = top_ns.parentNamespace;
-				g.parentNamespace = top_ns;
-			}
+			var parent = cref.ref.parent;
+			cref.ref.parent = g;
+			if(!g.parent)
+				g.parent = parent;
+			//cref.ref.show_in_toc = true; // only show classes in groups in toc
 		}
-		// try to guess group's namespace
-		if(!g.parentNamespace && !g.innernamespace.empty()) {
+		foreach(g.innernamespace as var nsref) {
+			var parent = nsref.ref.parent;
+			nsref.ref.parent = g;
+			if(!g.parent)
+				g.parent = parent;
+		}
+		foreach(g.innergroup as var gref) {
+			var parent = gref.ref.parent;
+			gref.ref.parent = g;
+			if(parent != g && !g.parent)
+				g.parent = parent;
+		}
+	}
+	
+	// try to guess group's namespace
+	foreach(groups as var id, var g) {
+		if(!g.parent && !g.innernamespace.empty()) {
 			var top_ns = g.innernamespace.front().ref;
-			while(top_ns.parentNamespace)
-				top_ns = top_ns.parentNamespace;
-			g.parentNamespace = top_ns;
+			while(top_ns.parent) {
+				top_ns = top_ns.parent;
+			}
+			g.parent = top_ns;
 		}
-		if(!g.parentNamespace && !g.innerclass.empty()) {
+		if(!g.parent && !g.innerclass.empty()) {
 			var top_ns = g.innerclass.front().ref;
-			while(top_ns.parentNamespace)
-				top_ns = top_ns.parentNamespace;
-			g.parentNamespace = top_ns;
+			while(top_ns.parent) {
+				top_ns = top_ns.parent;
+			}
+			g.parent = top_ns;
 		}
-		if(!g.parentNamespace && !g.sectiondef.empty()) {
+		if(!g.parent && !g.sectiondef.empty()) {
 			// try to guess namespace from member functions
 			var m = false;
 			foreach(g.sectiondef as var s) {
@@ -664,7 +684,7 @@ T.updateHierarchy ::= fn() {
 				var ns = m.location.file.split("/").front();		
 				foreach(namespaces as var id, var n) {
 					if(n.compoundname == ns) {
-						g.parentNamespace = n;
+						g.parent = n;
 						break;
 					}
 				}
@@ -748,17 +768,25 @@ T.parseFile ::= fn(file, outJSON=false) {
 		return false;
 	
 	var compound = rootObj.compounddef;
+	assureAttr(compound, $parent, false);
+	assureAttr(compound, $show_in_toc, false);
 	switch(compound.kind) {
 		case "namespace":
-			namespaces[compound.id] = compound; break;
+			namespaces[compound.id] = compound;
+			compound.show_in_toc = true;
+			break;
 		case "class":
-			classes[compound.id] = compound; break;
+			classes[compound.id] = compound;
+			compound.show_in_toc = true;
+			break;
 		case "struct":
 			structs[compound.id] = compound; break;
 		case "union":
 			unions[compound.id] = compound; break;
 		case "group":
-			groups[compound.id] = compound; break;
+			groups[compound.id] = compound; 
+			compound.show_in_toc = true;
+			break;
 		default:
 			return false;
 	}
@@ -769,7 +797,6 @@ T.parseFile ::= fn(file, outJSON=false) {
 		}
 	}
 
-	assureAttr(compound, $parentNamespace, false);
 	compound.shortname := compound.compoundname.split("::").back();
 	if(compound.title)
 		compound.shortname := compound.title.split("::").back();
