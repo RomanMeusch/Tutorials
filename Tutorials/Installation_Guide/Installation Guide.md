@@ -3,7 +3,7 @@ title: Building PADrend from source
 summary: This tutorial describes how to build PADrend from source code.
 permalink: installation_guide
 author: Benjamin Eikel, Claudius Jähn, Ralf Petring, Sascha Brandt
-last_updated: October 30, 2019
+last_updated: December 2, 2019
 category: Installation Guide@0
 order: 0
 ---
@@ -35,7 +35,7 @@ Make sure that your C++ compiler works as expected by compiling a simple C++ pro
 For building PADrend (not the libraries!) the [Ninja](https://github.com/martine/ninja) build system can be used.
 
 ### Choose your IDE
-* We recommend using [Atom](https://atom.io/) with the plugins [autocomplete-clang](https://atom.io/packages/autocomplete-clang), [linter-clang](https://atom.io/packages/linter-clang) and [language-escript](https://atom.io/packages/language-escript).
+* We recommend using [Atom](https://atom.io/) with the plugins [autocomplete-clang](https://atom.io/packages/autocomplete-clang), [linter-clang](https://atom.io/packages/linter-clang) and [language-escript](https://atom.io/packages/language-escript). See [Setting up Atom](atom_guide) for more information.
 * Other possible IDEs are: [Visual Studio Code](https://code.visualstudio.com/), [CLion](https://www.jetbrains.com/clion/), [CodeBlocks](http://www.codeblocks.org/), [Eclipse](https://www.eclipse.org/)
 * Visual Studio is currently not supported.
 
@@ -124,7 +124,7 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo -DMINSG_RECOMMENDED_EXT=True
 ```
 
-Now, simply call `make` from the build directory to build.
+Now, simply call `make` (or `ninja` if you use the [Ninja](https://github.com/martine/ninja) build system) from the build directory to build.
 For multi-threaded building use the `-j` option, e.g., `make -j8`
 
 #### Notes (Clang on Linux)
@@ -140,7 +140,7 @@ For multi-threaded building use the `-j` option, e.g., `make -j8`
 ----
 
 ## Starting PADrend
-* To run PADrend, open a powershell or cmd window and navigate to your PADrend source folder, e.g.: `cd C:/PADrend`
+* To run PADrend, open a terminal, powershell or cmd window and navigate to your PADrend source folder, e.g.: `cd ~/PADrend` (Linux) or `cd C:\PADrend` (Windows)
 * Run PADrend using the command:  `./build/PADrend` (Linux) or `.\build\PADrend.exe` (Windows)
 * On Windows, you can also create a Link on your desktop. You only have to make sure, that the working directory is the PADrend source folder (e.g., `C:/PADrend`) and not the build folder.
 * If you generated a project for your IDE, you can start PADrend out of your IDE.

@@ -17,7 +17,7 @@ order: 2
 In this guide, it is shown how to properly setup a C++ Plugin Project, i.e., how to create a C++ Plugin library and load it from within an EScript Plugin.
 You should already have a running PADrend installation (see [Installation Guide](installation_guide)).
 You can follow this guide to setup your project or checkout the ready-to-go [Example Project](https://git.cs.upb.de/algoCG/ExampleProject) and modify it to your liking (the *ExampleProject* contains much more functionality than this tutorial, like automatically setting the project name in `CMakeLists.txt` and `Main.cpp` based on your folder name).
-Furthermore, this guide assumes that you are using CMake to build PADrend (instead of a *ekki* script with CodeBlocks).
+Furthermore, this guide assumes that you are using CMake to build PADrend.
 
 ## Setting up your Project 
 
