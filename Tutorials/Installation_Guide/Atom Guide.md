@@ -5,7 +5,7 @@ permalink: atom_guide
 author: Sascha Brandt
 license: cc-by-sa 4.0
 last_updated: December 1, 2019
-path: Installation Guide->Setting up Atom
+path: Installation Guide
 order: 1
 ---
 
