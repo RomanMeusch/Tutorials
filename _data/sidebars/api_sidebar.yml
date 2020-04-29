@@ -1,0 +1,2032 @@
+title: C++ API
+kind: root
+items:
+- title: EScript
+  url: /namespaceEScript
+  kind: namespace
+  items:
+  - title: AST
+    url: /namespaceEScript_1_1AST
+    kind: namespace
+    items:
+    - title: "ASTNode"
+      url: /classEScript_1_1AST_1_1ASTNode
+      kind: class
+    - title: "AnnotatedStatement"
+      url: /classEScript_1_1AST_1_1AnnotatedStatement
+      kind: class
+    - title: "Block"
+      url: /classEScript_1_1AST_1_1Block
+      kind: class
+    - title: "BoolValueExpr"
+      url: /classEScript_1_1AST_1_1BoolValueExpr
+      kind: class
+    - title: "BreakStatement"
+      url: /classEScript_1_1AST_1_1BreakStatement
+      kind: class
+    - title: "ConditionalExpr"
+      url: /classEScript_1_1AST_1_1ConditionalExpr
+      kind: class
+    - title: "ContinueStatement"
+      url: /classEScript_1_1AST_1_1ContinueStatement
+      kind: class
+    - title: "ExitStatement"
+      url: /classEScript_1_1AST_1_1ExitStatement
+      kind: class
+    - title: "FunctionCallExpr"
+      url: /classEScript_1_1AST_1_1FunctionCallExpr
+      kind: class
+    - title: "GetAttributeExpr"
+      url: /classEScript_1_1AST_1_1GetAttributeExpr
+      kind: class
+    - title: "IdentifierValueExpr"
+      url: /classEScript_1_1AST_1_1IdentifierValueExpr
+      kind: class
+    - title: "IfStatement"
+      url: /classEScript_1_1AST_1_1IfStatement
+      kind: class
+    - title: "LogicOpExpr"
+      url: /classEScript_1_1AST_1_1LogicOpExpr
+      kind: class
+    - title: "LoopStatement"
+      url: /classEScript_1_1AST_1_1LoopStatement
+      kind: class
+    - title: "NumberValueExpr"
+      url: /classEScript_1_1AST_1_1NumberValueExpr
+      kind: class
+    - title: "ReturnStatement"
+      url: /classEScript_1_1AST_1_1ReturnStatement
+      kind: class
+    - title: "SetAttributeExpr"
+      url: /classEScript_1_1AST_1_1SetAttributeExpr
+      kind: class
+    - title: "StringValueExpr"
+      url: /classEScript_1_1AST_1_1StringValueExpr
+      kind: class
+    - title: "SwitchCaseStatement"
+      url: /classEScript_1_1AST_1_1SwitchCaseStatement
+      kind: class
+    - title: "ThrowStatement"
+      url: /classEScript_1_1AST_1_1ThrowStatement
+      kind: class
+    - title: "TryCatchStatement"
+      url: /classEScript_1_1AST_1_1TryCatchStatement
+      kind: class
+    - title: "UserFunctionExpr"
+      url: /classEScript_1_1AST_1_1UserFunctionExpr
+      kind: class
+    - title: "VoidValueExpr"
+      url: /classEScript_1_1AST_1_1VoidValueExpr
+      kind: class
+    - title: "YieldStatement"
+      url: /classEScript_1_1AST_1_1YieldStatement
+      kind: class
+  - title: IO
+    url: /namespaceEScript_1_1IO
+    kind: namespace
+    items:
+    - title: "AbstractFileSystemHandler"
+      url: /classEScript_1_1IO_1_1AbstractFileSystemHandler
+      kind: class
+    - title: "DefaultFileSystemHandler"
+      url: /classEScript_1_1IO_1_1DefaultFileSystemHandler
+      kind: class
+  - title: IOLib
+    url: /namespaceEScript_1_1IOLib
+    kind: namespace
+  - title: MathLib
+    url: /namespaceEScript_1_1MathLib
+    kind: namespace
+  - title: Policies
+    url: /namespaceEScript_1_1Policies
+    kind: namespace
+    items:
+    - title: "StoreAttrsInEObject_Policy"
+      url: /classEScript_1_1Policies_1_1StoreAttrsInEObject__Policy
+      kind: class
+  - title: StdLib
+    url: /namespaceEScript_1_1StdLib
+    kind: namespace
+  - title: StringUtils
+    url: /namespaceEScript_1_1StringUtils
+    kind: namespace
+  - title: "Array"
+    url: /classEScript_1_1Array
+    kind: class
+  - title: "Attribute"
+    url: /classEScript_1_1Attribute
+    kind: class
+  - title: "AttributeContainer"
+    url: /classEScript_1_1AttributeContainer
+    kind: class
+  - title: "Bool"
+    url: /classEScript_1_1Bool
+    kind: class
+  - title: "CodeFragment"
+    url: /classEScript_1_1CodeFragment
+    kind: class
+  - title: "Collection"
+    url: /classEScript_1_1Collection
+    kind: class
+  - title: "Compiler"
+    url: /classEScript_1_1Compiler
+    kind: class
+  - title: "Debug"
+    url: /classEScript_1_1Debug
+    kind: class
+  - title: "EPtr"
+    url: /classEScript_1_1EPtr
+    kind: class
+  - title: "ERef"
+    url: /classEScript_1_1ERef
+    kind: class
+  - title: "EReferenceCounter"
+    url: /classEScript_1_1EReferenceCounter
+    kind: class
+  - title: "Exception"
+    url: /classEScript_1_1Exception
+    kind: class
+  - title: "ExtObject"
+    url: /classEScript_1_1ExtObject
+    kind: class
+  - title: "ExtReferenceObject"
+    url: /classEScript_1_1ExtReferenceObject
+    kind: class
+  - title: "FnBinder"
+    url: /classEScript_1_1FnBinder
+    kind: class
+  - title: "FnCompileContext"
+    url: /classEScript_1_1FnCompileContext
+    kind: class
+  - title: "Function"
+    url: /classEScript_1_1Function
+    kind: class
+  - title: "FunctionCallContext"
+    url: /classEScript_1_1FunctionCallContext
+    kind: class
+  - title: "Identifier"
+    url: /classEScript_1_1Identifier
+    kind: class
+  - title: "Instruction"
+    url: /classEScript_1_1Instruction
+    kind: class
+  - title: "InstructionBlock"
+    url: /classEScript_1_1InstructionBlock
+    kind: class
+  - title: "Iterator"
+    url: /classEScript_1_1Iterator
+    kind: class
+  - title: "Logger"
+    url: /classEScript_1_1Logger
+    kind: class
+  - title: "LoggerGroup"
+    url: /classEScript_1_1LoggerGroup
+    kind: class
+  - title: "Map"
+    url: /classEScript_1_1Map
+    kind: class
+  - title: "Namespace"
+    url: /classEScript_1_1Namespace
+    kind: class
+  - title: "Number"
+    url: /classEScript_1_1Number
+    kind: class
+  - title: "Object"
+    url: /classEScript_1_1Object
+    kind: class
+  - title: "ObjectReleaseHandler"
+    url: /classEScript_1_1ObjectReleaseHandler
+    kind: class
+  - title: "Operator"
+    url: /classEScript_1_1Operator
+    kind: class
+  - title: "Parser"
+    url: /classEScript_1_1Parser
+    kind: class
+  - title: "ReferenceObject"
+    url: /classEScript_1_1ReferenceObject
+    kind: class
+  - title: "RtValue"
+    url: /classEScript_1_1RtValue
+    kind: class
+  - title: "Runtime"
+    url: /classEScript_1_1Runtime
+    kind: class
+  - title: "RuntimeInternals"
+    url: /classEScript_1_1RuntimeInternals
+    kind: class
+  - title: "StaticData"
+    url: /classEScript_1_1StaticData
+    kind: class
+  - title: "StdLogger"
+    url: /classEScript_1_1StdLogger
+    kind: class
+  - title: "String"
+    url: /classEScript_1_1String
+    kind: class
+  - title: "StringData"
+    url: /classEScript_1_1StringData
+    kind: class
+  - title: "StringId"
+    url: /classEScript_1_1StringId
+    kind: class
+  - title: "TControl"
+    url: /classEScript_1_1TControl
+    kind: class
+  - title: "TIdentifier"
+    url: /classEScript_1_1TIdentifier
+    kind: class
+  - title: "Token"
+    url: /classEScript_1_1Token
+    kind: class
+  - title: "Tokenizer"
+    url: /classEScript_1_1Tokenizer
+    kind: class
+  - title: "Type"
+    url: /classEScript_1_1Type
+    kind: class
+  - title: "UserFunction"
+    url: /classEScript_1_1UserFunction
+    kind: class
+  - title: "Void"
+    url: /classEScript_1_1Void
+    kind: class
+  - title: "YieldIterator"
+    url: /classEScript_1_1YieldIterator
+    kind: class
+  - title: "_CountedRef"
+    url: /classEScript_1_1__CountedRef
+    kind: class
+  - title: "_ObjArray"
+    url: /classEScript_1_1__ObjArray
+    kind: class
+  - title: "_Ptr"
+    url: /classEScript_1_1__Ptr
+    kind: class
+- title: GUI
+  url: /namespaceGUI
+  kind: namespace
+  items:
+  - title: Colors
+    url: /namespaceGUI_1_1Colors
+    kind: namespace
+  - title: EmbeddedFonts
+    url: /namespaceGUI_1_1EmbeddedFonts
+    kind: namespace
+  - title: "AbstractFont"
+    url: /classGUI_1_1AbstractFont
+    kind: class
+  - title: "AbstractLayouter"
+    url: /classGUI_1_1AbstractLayouter
+    kind: class
+  - title: "AbstractLineShape"
+    url: /classGUI_1_1AbstractLineShape
+    kind: class
+  - title: "AbstractShape"
+    url: /classGUI_1_1AbstractShape
+    kind: class
+  - title: "AnimationHandler"
+    url: /classGUI_1_1AnimationHandler
+    kind: class
+  - title: "BitmapFont"
+    url: /classGUI_1_1BitmapFont
+    kind: class
+  - title: "Button"
+    url: /classGUI_1_1Button
+    kind: class
+  - title: "Checkbox"
+    url: /classGUI_1_1Checkbox
+    kind: class
+  - title: "ColorProperty"
+    url: /classGUI_1_1ColorProperty
+    kind: class
+  - title: "Component"
+    url: /classGUI_1_1Component
+    kind: class
+  - title: "Connector"
+    url: /classGUI_1_1Connector
+    kind: class
+  - title: "Container"
+    url: /classGUI_1_1Container
+    kind: class
+  - title: "CrossShape"
+    url: /classGUI_1_1CrossShape
+    kind: class
+  - title: "DisplayProperty"
+    url: /classGUI_1_1DisplayProperty
+    kind: class
+  - title: "Draw"
+    url: /classGUI_1_1Draw
+    kind: class
+  - title: "EditorPanel"
+    url: /classGUI_1_1EditorPanel
+    kind: class
+  - title: "ExtLayouter"
+    url: /classGUI_1_1ExtLayouter
+    kind: class
+  - title: "FlowLayouter"
+    url: /classGUI_1_1FlowLayouter
+    kind: class
+  - title: "FontProperty"
+    url: /classGUI_1_1FontProperty
+    kind: class
+  - title: "GUI_Manager"
+    url: /classGUI_1_1GUI__Manager
+    kind: class
+  - title: "GridShape"
+    url: /classGUI_1_1GridShape
+    kind: class
+  - title: "Icon"
+    url: /classGUI_1_1Icon
+    kind: class
+  - title: "Image"
+    url: /classGUI_1_1Image
+    kind: class
+  - title: "ImageData"
+    url: /classGUI_1_1ImageData
+    kind: class
+  - title: "Label"
+    url: /classGUI_1_1Label
+    kind: class
+  - title: "ListView"
+    url: /classGUI_1_1ListView
+    kind: class
+  - title: "Menu"
+    url: /classGUI_1_1Menu
+    kind: class
+  - title: "NextColumn"
+    url: /classGUI_1_1NextColumn
+    kind: class
+  - title: "NextRow"
+    url: /classGUI_1_1NextRow
+    kind: class
+  - title: "NullShape"
+    url: /classGUI_1_1NullShape
+    kind: class
+  - title: "OuterRectShadowShape"
+    url: /classGUI_1_1OuterRectShadowShape
+    kind: class
+  - title: "Panel"
+    url: /classGUI_1_1Panel
+    kind: class
+  - title: "Rect3dShape"
+    url: /classGUI_1_1Rect3dShape
+    kind: class
+  - title: "RectShape"
+    url: /classGUI_1_1RectShape
+    kind: class
+  - title: "ResizerShape"
+    url: /classGUI_1_1ResizerShape
+    kind: class
+  - title: "Rounded3dRectShape"
+    url: /classGUI_1_1Rounded3dRectShape
+    kind: class
+  - title: "ScrollableContainer"
+    url: /classGUI_1_1ScrollableContainer
+    kind: class
+  - title: "ScrollableMarkerShape"
+    url: /classGUI_1_1ScrollableMarkerShape
+    kind: class
+  - title: "Scrollbar"
+    url: /classGUI_1_1Scrollbar
+    kind: class
+  - title: "ShadowedRectShape"
+    url: /classGUI_1_1ShadowedRectShape
+    kind: class
+  - title: "ShapeProperty"
+    url: /classGUI_1_1ShapeProperty
+    kind: class
+  - title: "Slider"
+    url: /classGUI_1_1Slider
+    kind: class
+  - title: "SliderMarkerShape"
+    url: /classGUI_1_1SliderMarkerShape
+    kind: class
+  - title: "SmoothConnectorShape"
+    url: /classGUI_1_1SmoothConnectorShape
+    kind: class
+  - title: "Splitter"
+    url: /classGUI_1_1Splitter
+    kind: class
+  - title: "StraightLineShape"
+    url: /classGUI_1_1StraightLineShape
+    kind: class
+  - title: "Style"
+    url: /classGUI_1_1Style
+    kind: class
+  - title: "StyleManager"
+    url: /classGUI_1_1StyleManager
+    kind: class
+  - title: "TabHeaderShape"
+    url: /classGUI_1_1TabHeaderShape
+    kind: class
+  - title: "TabbedPanel"
+    url: /classGUI_1_1TabbedPanel
+    kind: class
+  - title: "Textarea"
+    url: /classGUI_1_1Textarea
+    kind: class
+  - title: "TextareaTextProcessor"
+    url: /classGUI_1_1TextareaTextProcessor
+    kind: class
+  - title: "Textfield"
+    url: /classGUI_1_1Textfield
+    kind: class
+  - title: "TreeView"
+    url: /classGUI_1_1TreeView
+    kind: class
+  - title: "TriangleAtCornerShape"
+    url: /classGUI_1_1TriangleAtCornerShape
+    kind: class
+  - title: "TriangleSelectorShape"
+    url: /classGUI_1_1TriangleSelectorShape
+    kind: class
+  - title: "UseColorProperty"
+    url: /classGUI_1_1UseColorProperty
+    kind: class
+  - title: "UseFontProperty"
+    url: /classGUI_1_1UseFontProperty
+    kind: class
+  - title: "UseShapeProperty"
+    url: /classGUI_1_1UseShapeProperty
+    kind: class
+  - title: "Window"
+    url: /classGUI_1_1Window
+    kind: class
+- title: Geometry
+  url: /namespaceGeometry
+  kind: namespace
+  items:
+  - title: BoundingSphere
+    url: /namespaceGeometry_1_1BoundingSphere
+    kind: namespace
+  - title: Helper
+    url: /namespaceGeometry_1_1Helper
+    kind: namespace
+  - title: Interpolation
+    url: /namespaceGeometry_1_1Interpolation
+    kind: namespace
+  - title: Intersection
+    url: /namespaceGeometry_1_1Intersection
+    kind: namespace
+    items:
+    - title: "Slope"
+      url: /classGeometry_1_1Intersection_1_1Slope
+      kind: class
+  - title: "Frustum"
+    url: /classGeometry_1_1Frustum
+    kind: class
+  - title: "Point"
+    url: /classGeometry_1_1Point
+    kind: class
+  - title: "PointOctree"
+    url: /classGeometry_1_1PointOctree
+    kind: class
+  - title: "Quaternion"
+    url: /classGeometry_1_1Quaternion
+    kind: class
+  - title: "Tetrahedron"
+    url: /classGeometry_1_1Tetrahedron
+    kind: class
+  - title: "Triangle"
+    url: /classGeometry_1_1Triangle
+    kind: class
+  - title: "VoxelStorage"
+    url: /classGeometry_1_1VoxelStorage
+    kind: class
+  - title: "_Angle"
+    url: /classGeometry_1_1__Angle
+    kind: class
+  - title: "_Box"
+    url: /classGeometry_1_1__Box
+    kind: class
+  - title: "_DualQuaternion"
+    url: /classGeometry_1_1__DualQuaternion
+    kind: class
+  - title: "_Line"
+    url: /classGeometry_1_1__Line
+    kind: class
+  - title: "_LineBase"
+    url: /classGeometry_1_1__LineBase
+    kind: class
+  - title: "_Matrix3x3"
+    url: /classGeometry_1_1__Matrix3x3
+    kind: class
+  - title: "_Matrix4x4"
+    url: /classGeometry_1_1__Matrix4x4
+    kind: class
+  - title: "_Plane"
+    url: /classGeometry_1_1__Plane
+    kind: class
+  - title: "_Ray"
+    url: /classGeometry_1_1__Ray
+    kind: class
+  - title: "_Rect"
+    url: /classGeometry_1_1__Rect
+    kind: class
+  - title: "_SRT"
+    url: /classGeometry_1_1__SRT
+    kind: class
+  - title: "_Segment"
+    url: /classGeometry_1_1__Segment
+    kind: class
+  - title: "_Sphere"
+    url: /classGeometry_1_1__Sphere
+    kind: class
+  - title: "_Vec2"
+    url: /classGeometry_1_1__Vec2
+    kind: class
+  - title: "_Vec3"
+    url: /classGeometry_1_1__Vec3
+    kind: class
+  - title: "_Vec4"
+    url: /classGeometry_1_1__Vec4
+    kind: class
+  - title: "_VecN"
+    url: /classGeometry_1_1__VecN
+    kind: class
+- title: MinSG
+  url: /namespaceMinSG
+  kind: namespace
+  items:
+  - title: Behaviours
+    url: /group__behaviour
+    kind: group
+    items:
+    - title: "AbstractBehaviour"
+      url: /classMinSG_1_1AbstractBehaviour
+      kind: class
+    - title: "AbstractBehaviourDecorator"
+      url: /classMinSG_1_1AbstractBehaviourDecorator
+      kind: class
+    - title: "Behavior"
+      url: /classMinSG_1_1Behavior
+      kind: class
+    - title: "BehaviourGroup"
+      url: /classMinSG_1_1BehaviourGroup
+      kind: class
+    - title: "FollowPathBehaviour"
+      url: /classMinSG_1_1FollowPathBehaviour
+      kind: class
+    - title: "KeyFrameAnimationBehaviour"
+      url: /classMinSG_1_1KeyFrameAnimationBehaviour
+      kind: class
+    - title: "SRTBehaviour"
+      url: /classMinSG_1_1SRTBehaviour
+      kind: class
+    - title: "SimplePhysics"
+      url: /classMinSG_1_1SimplePhysics
+      kind: class
+    - title: "SimplePhysics2"
+      url: /classMinSG_1_1SimplePhysics2
+      kind: class
+    - title: "TimedBehaviourDecorator"
+      url: /classMinSG_1_1TimedBehaviourDecorator
+      kind: class
+  - title: Extensions
+    url: /group__ext
+    kind: group
+    items:
+    - title: AGVS
+      url: /namespaceMinSG_1_1AGVS
+      kind: namespace
+      items:
+      - title: "AdaptiveGlobalVisibilitySampling"
+        url: /classMinSG_1_1AGVS_1_1AdaptiveGlobalVisibilitySampling
+        kind: class
+      - title: "MutationCandidate"
+        url: /classMinSG_1_1AGVS_1_1MutationCandidate
+        kind: class
+      - title: "MutationCandidates"
+        url: /classMinSG_1_1AGVS_1_1MutationCandidates
+        kind: class
+      - title: "Sample"
+        url: /classMinSG_1_1AGVS_1_1Sample
+        kind: class
+      - title: "SampleDistributions"
+        url: /classMinSG_1_1AGVS_1_1SampleDistributions
+        kind: class
+    - title: BlueSurfels
+      url: /namespaceMinSG_1_1BlueSurfels
+      kind: namespace
+      items:
+      - title: "AbstractSurfelSampler"
+        url: /classMinSG_1_1BlueSurfels_1_1AbstractSurfelSampler
+        kind: class
+      - title: "AbstractSurfelStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1AbstractSurfelStrategy
+        kind: class
+      - title: "AdaptiveStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1AdaptiveStrategy
+        kind: class
+      - title: "BlendStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1BlendStrategy
+        kind: class
+      - title: "DebugStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1DebugStrategy
+        kind: class
+      - title: "FactorStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1FactorStrategy
+        kind: class
+      - title: "FixedCountStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1FixedCountStrategy
+        kind: class
+      - title: "FixedSizeStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1FixedSizeStrategy
+        kind: class
+      - title: "FoveatedStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1FoveatedStrategy
+        kind: class
+      - title: "GreedyCluster"
+        url: /classMinSG_1_1BlueSurfels_1_1GreedyCluster
+        kind: class
+      - title: "ProgressiveSampler"
+        url: /classMinSG_1_1BlueSurfels_1_1ProgressiveSampler
+        kind: class
+      - title: "RandomSampler"
+        url: /classMinSG_1_1BlueSurfels_1_1RandomSampler
+        kind: class
+      - title: "ReferencePointStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1ReferencePointStrategy
+        kind: class
+      - title: "ShaderStrategy"
+        url: /classMinSG_1_1BlueSurfels_1_1ShaderStrategy
+        kind: class
+      - title: "SurfelRenderer"
+        url: /classMinSG_1_1BlueSurfels_1_1SurfelRenderer
+        kind: class
+    - title: Evaluators
+      url: /namespaceMinSG_1_1Evaluators
+      kind: namespace
+      items:
+      - title: "AdaptCullEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1AdaptCullEvaluator
+        kind: class
+      - title: "AreaEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1AreaEvaluator
+        kind: class
+      - title: "BoxQualityEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1BoxQualityEvaluator
+        kind: class
+      - title: "ColorVisibilityEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1ColorVisibilityEvaluator
+        kind: class
+      - title: "Evaluator"
+        url: /classMinSG_1_1Evaluators_1_1Evaluator
+        kind: class
+      - title: "OccOverheadEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1OccOverheadEvaluator
+        kind: class
+      - title: "OverdrawFactorEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1OverdrawFactorEvaluator
+        kind: class
+      - title: "StatsEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1StatsEvaluator
+        kind: class
+      - title: "TrianglesEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1TrianglesEvaluator
+        kind: class
+      - title: "VisibilityEvaluator"
+        url: /classMinSG_1_1Evaluators_1_1VisibilityEvaluator
+        kind: class
+    - title: ImageCompare
+      url: /namespaceMinSG_1_1ImageCompare
+      kind: namespace
+      items:
+      - title: "AbstractImageComparator"
+        url: /classMinSG_1_1ImageCompare_1_1AbstractImageComparator
+        kind: class
+      - title: "AbstractOnGpuComparator"
+        url: /classMinSG_1_1ImageCompare_1_1AbstractOnGpuComparator
+        kind: class
+      - title: "AverageComparator"
+        url: /classMinSG_1_1ImageCompare_1_1AverageComparator
+        kind: class
+      - title: "PyramidComparator"
+        url: /classMinSG_1_1ImageCompare_1_1PyramidComparator
+        kind: class
+      - title: "SSIMComparator"
+        url: /classMinSG_1_1ImageCompare_1_1SSIMComparator
+        kind: class
+      - title: "SimilarPixelCounter"
+        url: /classMinSG_1_1ImageCompare_1_1SimilarPixelCounter
+        kind: class
+    - title: ImpostorFactory
+      url: /namespaceMinSG_1_1ImpostorFactory
+      kind: namespace
+    - title: MAR
+      url: /namespaceMinSG_1_1MAR
+      kind: namespace
+      items:
+      - title: "AlgoSelector"
+        url: /classMinSG_1_1MAR_1_1AlgoSelector
+        kind: class
+      - title: "MultiAlgoGroupNode"
+        url: /classMinSG_1_1MAR_1_1MultiAlgoGroupNode
+        kind: class
+      - title: "NiceRandomPositionGenerator"
+        url: /classMinSG_1_1MAR_1_1NiceRandomPositionGenerator
+        kind: class
+      - title: "PolygonCountEvaluator"
+        url: /classMinSG_1_1MAR_1_1PolygonCountEvaluator
+        kind: class
+      - title: "PolygonDensityEvaluator"
+        url: /classMinSG_1_1MAR_1_1PolygonDensityEvaluator
+        kind: class
+      - title: "Region"
+        url: /classMinSG_1_1MAR_1_1Region
+        kind: class
+      - title: "RegionEvaluator"
+        url: /classMinSG_1_1MAR_1_1RegionEvaluator
+        kind: class
+      - title: "RegionSizeEvaluator"
+        url: /classMinSG_1_1MAR_1_1RegionSizeEvaluator
+        kind: class
+      - title: "SampleContext"
+        url: /classMinSG_1_1MAR_1_1SampleContext
+        kind: class
+      - title: "SamplePositionGenerator"
+        url: /classMinSG_1_1MAR_1_1SamplePositionGenerator
+        kind: class
+      - title: "SampleQuality"
+        url: /classMinSG_1_1MAR_1_1SampleQuality
+        kind: class
+      - title: "SampleRegion"
+        url: /classMinSG_1_1MAR_1_1SampleRegion
+        kind: class
+      - title: "SampleStorage"
+        url: /classMinSG_1_1MAR_1_1SampleStorage
+        kind: class
+      - title: "SurfelRenderer"
+        url: /classMinSG_1_1MAR_1_1SurfelRenderer
+        kind: class
+    - title: MixedExtVisibility
+      url: /namespaceMinSG_1_1MixedExtVisibility
+      kind: namespace
+    - title: OutOfCore
+      url: /namespaceMinSG_1_1OutOfCore
+      kind: namespace
+      items:
+      - title: "CacheContext"
+        url: /classMinSG_1_1OutOfCore_1_1CacheContext
+        kind: class
+      - title: "CacheLevel"
+        url: /classMinSG_1_1OutOfCore_1_1CacheLevel
+        kind: class
+      - title: "CacheLevelFileSystem"
+        url: /classMinSG_1_1OutOfCore_1_1CacheLevelFileSystem
+        kind: class
+      - title: "CacheLevelFiles"
+        url: /classMinSG_1_1OutOfCore_1_1CacheLevelFiles
+        kind: class
+      - title: "CacheLevelGraphicsMemory"
+        url: /classMinSG_1_1OutOfCore_1_1CacheLevelGraphicsMemory
+        kind: class
+      - title: "CacheLevelMainMemory"
+        url: /classMinSG_1_1OutOfCore_1_1CacheLevelMainMemory
+        kind: class
+      - title: "CacheManager"
+        url: /classMinSG_1_1OutOfCore_1_1CacheManager
+        kind: class
+      - title: "CacheObject"
+        url: /classMinSG_1_1OutOfCore_1_1CacheObject
+        kind: class
+      - title: "CacheObjectPriority"
+        url: /classMinSG_1_1OutOfCore_1_1CacheObjectPriority
+        kind: class
+      - title: "DataStrategy"
+        url: /classMinSG_1_1OutOfCore_1_1DataStrategy
+        kind: class
+      - title: "ImportHandler"
+        url: /classMinSG_1_1OutOfCore_1_1ImportHandler
+        kind: class
+    - title: PathTracing
+      url: /namespaceMinSG_1_1PathTracing
+      kind: namespace
+      items:
+      - title: "DiffuseAreaLight"
+        url: /classMinSG_1_1PathTracing_1_1DiffuseAreaLight
+        kind: class
+      - title: "ExtTriangle"
+        url: /classMinSG_1_1PathTracing_1_1ExtTriangle
+        kind: class
+      - title: "Light"
+        url: /classMinSG_1_1PathTracing_1_1Light
+        kind: class
+      - title: "Material"
+        url: /classMinSG_1_1PathTracing_1_1Material
+        kind: class
+      - title: "MinSGLight"
+        url: /classMinSG_1_1PathTracing_1_1MinSGLight
+        kind: class
+      - title: "PathTracer"
+        url: /classMinSG_1_1PathTracing_1_1PathTracer
+        kind: class
+      - title: "RayCaster"
+        url: /classMinSG_1_1PathTracing_1_1RayCaster
+        kind: class
+      - title: "SurfacePoint"
+        url: /classMinSG_1_1PathTracing_1_1SurfacePoint
+        kind: class
+    - title: Physics
+      url: /namespaceMinSG_1_1Physics
+      kind: namespace
+      items:
+      - title: "BtCollisionShape"
+        url: /classMinSG_1_1Physics_1_1BtCollisionShape
+        kind: class
+      - title: "BtCombinedCollisionShape"
+        url: /classMinSG_1_1Physics_1_1BtCombinedCollisionShape
+        kind: class
+      - title: "BtConstraintObject"
+        url: /classMinSG_1_1Physics_1_1BtConstraintObject
+        kind: class
+      - title: "BtPhysicObject"
+        url: /classMinSG_1_1Physics_1_1BtPhysicObject
+        kind: class
+      - title: "BtPhysicWorld"
+        url: /classMinSG_1_1Physics_1_1BtPhysicWorld
+        kind: class
+      - title: "CollisionShape"
+        url: /classMinSG_1_1Physics_1_1CollisionShape
+        kind: class
+      - title: "MotionState"
+        url: /classMinSG_1_1Physics_1_1MotionState
+        kind: class
+      - title: "MyDebugDraw"
+        url: /classMinSG_1_1Physics_1_1MyDebugDraw
+        kind: class
+      - title: "PhysicWorld"
+        url: /classMinSG_1_1Physics_1_1PhysicWorld
+        kind: class
+    - title: PipelineStatistics
+      url: /namespaceMinSG_1_1PipelineStatistics
+      kind: namespace
+      items:
+      - title: "Collector"
+        url: /classMinSG_1_1PipelineStatistics_1_1Collector
+        kind: class
+      - title: "Statistics"
+        url: /classMinSG_1_1PipelineStatistics_1_1Statistics
+        kind: class
+    - title: Profiling
+      url: /namespaceMinSG_1_1Profiling
+      kind: namespace
+      items:
+      - title: "Logger"
+        url: /classMinSG_1_1Profiling_1_1Logger
+        kind: class
+      - title: "LoggerJSON"
+        url: /classMinSG_1_1Profiling_1_1LoggerJSON
+        kind: class
+      - title: "LoggerPlainText"
+        url: /classMinSG_1_1Profiling_1_1LoggerPlainText
+        kind: class
+      - title: "LoggerTSV"
+        url: /classMinSG_1_1Profiling_1_1LoggerTSV
+        kind: class
+      - title: "LoggerXML"
+        url: /classMinSG_1_1Profiling_1_1LoggerXML
+        kind: class
+      - title: "Profiler"
+        url: /classMinSG_1_1Profiling_1_1Profiler
+        kind: class
+    - title: RayCasting
+      url: /namespaceMinSG_1_1RayCasting
+      kind: namespace
+      items:
+      - title: "RayCaster"
+        url: /classMinSG_1_1RayCasting_1_1RayCaster
+        kind: class
+    - title: SVS
+      url: /namespaceMinSG_1_1SVS
+      kind: namespace
+      items:
+      - title: "BudgetRenderer"
+        url: /classMinSG_1_1SVS_1_1BudgetRenderer
+        kind: class
+      - title: "GeometryNodeCollector"
+        url: /classMinSG_1_1SVS_1_1GeometryNodeCollector
+        kind: class
+      - title: "PreprocessingContext"
+        url: /classMinSG_1_1SVS_1_1PreprocessingContext
+        kind: class
+      - title: "Renderer"
+        url: /classMinSG_1_1SVS_1_1Renderer
+        kind: class
+      - title: "SamplePoint"
+        url: /classMinSG_1_1SVS_1_1SamplePoint
+        kind: class
+      - title: "SphereVisualizationRenderer"
+        url: /classMinSG_1_1SVS_1_1SphereVisualizationRenderer
+        kind: class
+      - title: "Statistics"
+        url: /classMinSG_1_1SVS_1_1Statistics
+        kind: class
+      - title: "VisibilitySphere"
+        url: /classMinSG_1_1SVS_1_1VisibilitySphere
+        kind: class
+    - title: SamplingAnalysis
+      url: /namespaceMinSG_1_1SamplingAnalysis
+      kind: namespace
+    - title: SkeletalAnimationUtils
+      url: /namespaceMinSG_1_1SkeletalAnimationUtils
+      kind: namespace
+    - title: TreeBuilder
+      url: /namespaceMinSG_1_1TreeBuilder
+      kind: namespace
+      items:
+      - title: "AbstractTreeBuilder"
+        url: /classMinSG_1_1TreeBuilder_1_1AbstractTreeBuilder
+        kind: class
+      - title: "BinaryTreeBuilder"
+        url: /classMinSG_1_1TreeBuilder_1_1BinaryTreeBuilder
+        kind: class
+      - title: "KDTreeBuilder"
+        url: /classMinSG_1_1TreeBuilder_1_1KDTreeBuilder
+        kind: class
+      - title: "OcTreeBuilder"
+        url: /classMinSG_1_1TreeBuilder_1_1OcTreeBuilder
+        kind: class
+      - title: "QuadTreeBuilder"
+        url: /classMinSG_1_1TreeBuilder_1_1QuadTreeBuilder
+        kind: class
+    - title: TreeSync
+      url: /namespaceMinSG_1_1TreeSync
+      kind: namespace
+      items:
+      - title: "Server"
+        url: /classMinSG_1_1TreeSync_1_1Server
+        kind: class
+      - title: "TreeSyncClient"
+        url: /classMinSG_1_1TreeSync_1_1TreeSyncClient
+        kind: class
+    - title: TriangleTrees
+      url: /namespaceMinSG_1_1TriangleTrees
+      kind: namespace
+      items:
+      - title: "ABTree"
+        url: /classMinSG_1_1TriangleTrees_1_1ABTree
+        kind: class
+      - title: "ABTreeBuilder"
+        url: /classMinSG_1_1TriangleTrees_1_1ABTreeBuilder
+        kind: class
+      - title: "Builder"
+        url: /classMinSG_1_1TriangleTrees_1_1Builder
+        kind: class
+      - title: "Octree"
+        url: /classMinSG_1_1TriangleTrees_1_1Octree
+        kind: class
+      - title: "OctreeBuilder"
+        url: /classMinSG_1_1TriangleTrees_1_1OctreeBuilder
+        kind: class
+      - title: "RandomizedSampleTree"
+        url: /classMinSG_1_1TriangleTrees_1_1RandomizedSampleTree
+        kind: class
+      - title: "RandomizedSampleTreeBuilder"
+        url: /classMinSG_1_1TriangleTrees_1_1RandomizedSampleTreeBuilder
+        kind: class
+      - title: "SolidTree"
+        url: /classMinSG_1_1TriangleTrees_1_1SolidTree
+        kind: class
+      - title: "TreeVisualization"
+        url: /classMinSG_1_1TriangleTrees_1_1TreeVisualization
+        kind: class
+      - title: "TriangleAccessor"
+        url: /classMinSG_1_1TriangleTrees_1_1TriangleAccessor
+        kind: class
+      - title: "TriangleTree"
+        url: /classMinSG_1_1TriangleTrees_1_1TriangleTree
+        kind: class
+      - title: "kDTree"
+        url: /classMinSG_1_1TriangleTrees_1_1kDTree
+        kind: class
+      - title: "kDTreeBuilder"
+        url: /classMinSG_1_1TriangleTrees_1_1kDTreeBuilder
+        kind: class
+    - title: Triangulation
+      url: /namespaceMinSG_1_1Triangulation
+      kind: namespace
+      items:
+      - title: "D2D"
+        url: /classMinSG_1_1Triangulation_1_1D2D
+        kind: class
+      - title: "Delaunay2d"
+        url: /classMinSG_1_1Triangulation_1_1Delaunay2d
+        kind: class
+      - title: "Delaunay3d"
+        url: /classMinSG_1_1Triangulation_1_1Delaunay3d
+        kind: class
+      - title: "TetrahedronWrapper"
+        url: /classMinSG_1_1Triangulation_1_1TetrahedronWrapper
+        kind: class
+    - title: TwinPartitions
+      url: /namespaceMinSG_1_1TwinPartitions
+      kind: namespace
+      items:
+      - title: "TwinPartitionsRenderer"
+        url: /classMinSG_1_1TwinPartitions_1_1TwinPartitionsRenderer
+        kind: class
+    - title: VisibilityMerge
+      url: /namespaceMinSG_1_1VisibilityMerge
+      kind: namespace
+      items:
+      - title: "Helper"
+        url: /classMinSG_1_1VisibilityMerge_1_1Helper
+        kind: class
+      - title: "Statistics"
+        url: /classMinSG_1_1VisibilityMerge_1_1Statistics
+        kind: class
+      - title: "VisibilityMerge"
+        url: /classMinSG_1_1VisibilityMerge_1_1VisibilityMerge
+        kind: class
+    - title: VisibilitySubdivision
+      url: /namespaceMinSG_1_1VisibilitySubdivision
+      kind: namespace
+      items:
+      - title: "CostEvaluator"
+        url: /classMinSG_1_1VisibilitySubdivision_1_1CostEvaluator
+        kind: class
+      - title: "PVSRenderer"
+        url: /classMinSG_1_1VisibilitySubdivision_1_1PVSRenderer
+        kind: class
+      - title: "VisibilitySubdivisionRenderer"
+        url: /classMinSG_1_1VisibilitySubdivision_1_1VisibilitySubdivisionRenderer
+        kind: class
+      - title: "VisibilityVector"
+        url: /classMinSG_1_1VisibilitySubdivision_1_1VisibilityVector
+        kind: class
+    - title: VoxelWorld
+      url: /namespaceMinSG_1_1VoxelWorld
+      kind: namespace
+      items:
+      - title: "Material"
+        url: /classMinSG_1_1VoxelWorld_1_1Material
+        kind: class
+      - title: "MaterialLib"
+        url: /classMinSG_1_1VoxelWorld_1_1MaterialLib
+        kind: class
+    - title: "ColorCube"
+      url: /classMinSG_1_1ColorCube
+      kind: class
+    - title: "ColorCubeGenerator"
+      url: /classMinSG_1_1ColorCubeGenerator
+      kind: class
+    - title: "ColorCubeRenderer"
+      url: /classMinSG_1_1ColorCubeRenderer
+      kind: class
+    - title: "KeyFrameAnimationData"
+      url: /classMinSG_1_1KeyFrameAnimationData
+      kind: class
+    - title: "KeyFrameAnimationNode"
+      url: /classMinSG_1_1KeyFrameAnimationNode
+      kind: class
+  - title: Helper
+    url: /group__helper
+    kind: group
+    items:
+    - title: DataDirectory
+      url: /namespaceMinSG_1_1DataDirectory
+      kind: namespace
+    - title: DistanceCalculators
+      url: /namespaceMinSG_1_1DistanceCalculators
+      kind: namespace
+    - title: GraphVizOutput
+      url: /namespaceMinSG_1_1GraphVizOutput
+      kind: namespace
+    - title: NodeAttributeModifier
+      url: /namespaceMinSG_1_1NodeAttributeModifier
+      kind: namespace
+    - title: TextAnnotation
+      url: /namespaceMinSG_1_1TextAnnotation
+      kind: namespace
+    - title: Transformations
+      url: /namespaceMinSG_1_1Transformations
+      kind: namespace
+    - title: VisibilityTester
+      url: /namespaceMinSG_1_1VisibilityTester
+      kind: namespace
+    - title: "NodeRendererRegistrationHolder"
+      url: /classMinSG_1_1NodeRendererRegistrationHolder
+      kind: class
+    - title: "NodeVisitor"
+      url: /classMinSG_1_1NodeVisitor
+      kind: class
+    - title: "_DistanceCompare"
+      url: /classMinSG_1_1__DistanceCompare
+      kind: class
+  - title: Nodes
+    url: /group__nodes
+    kind: group
+    items:
+    - title: "AbstractCameraNode"
+      url: /classMinSG_1_1AbstractCameraNode
+      kind: class
+    - title: "BillboardNode"
+      url: /classMinSG_1_1BillboardNode
+      kind: class
+    - title: "CameraNode"
+      url: /classMinSG_1_1CameraNode
+      kind: class
+    - title: "CameraNodeOrtho"
+      url: /classMinSG_1_1CameraNodeOrtho
+      kind: class
+    - title: "FakeInstanceNode"
+      url: /classMinSG_1_1FakeInstanceNode
+      kind: class
+    - title: "GenericMetaNode"
+      url: /classMinSG_1_1GenericMetaNode
+      kind: class
+    - title: "GeometryNode"
+      url: /classMinSG_1_1GeometryNode
+      kind: class
+    - title: "GroupNode"
+      url: /classMinSG_1_1GroupNode
+      kind: class
+    - title: "LightNode"
+      url: /classMinSG_1_1LightNode
+      kind: class
+    - title: "ListNode"
+      url: /classMinSG_1_1ListNode
+      kind: class
+    - title: "Node"
+      url: /classMinSG_1_1Node
+      kind: class
+    - title: "ParticleSystemNode"
+      url: /classMinSG_1_1ParticleSystemNode
+      kind: class
+    - title: "PathNode"
+      url: /classMinSG_1_1PathNode
+      kind: class
+    - title: "RTree"
+      url: /classMinSG_1_1RTree
+      kind: class
+    - title: "ValuatedRegionNode"
+      url: /classMinSG_1_1ValuatedRegionNode
+      kind: class
+    - title: "Waypoint"
+      url: /classMinSG_1_1Waypoint
+      kind: class
+  - title: SceneManagement
+    url: /namespaceMinSG_1_1SceneManagement
+    kind: namespace
+    items:
+    - title: Consts
+      url: /namespaceMinSG_1_1SceneManagement_1_1Consts
+      kind: namespace
+    - title: ExporterTools
+      url: /namespaceMinSG_1_1SceneManagement_1_1ExporterTools
+      kind: namespace
+    - title: ImporterTools
+      url: /namespaceMinSG_1_1SceneManagement_1_1ImporterTools
+      kind: namespace
+    - title: ReaderDAE
+      url: /namespaceMinSG_1_1SceneManagement_1_1ReaderDAE
+      kind: namespace
+    - title: ReaderMinSG
+      url: /namespaceMinSG_1_1SceneManagement_1_1ReaderMinSG
+      kind: namespace
+    - title: "ImportContext"
+      url: /classMinSG_1_1SceneManagement_1_1ImportContext
+      kind: class
+    - title: "MeshImportHandler"
+      url: /classMinSG_1_1SceneManagement_1_1MeshImportHandler
+      kind: class
+    - title: "SceneManager"
+      url: /classMinSG_1_1SceneManagement_1_1SceneManager
+      kind: class
+    - title: "TreeRegistry"
+      url: /classMinSG_1_1SceneManagement_1_1TreeRegistry
+      kind: class
+    - title: "WriterDAE"
+      url: /classMinSG_1_1SceneManagement_1_1WriterDAE
+      kind: class
+  - title: States
+    url: /group__states
+    kind: group
+    items:
+    - title: "AlphaTestState"
+      url: /classMinSG_1_1AlphaTestState
+      kind: class
+    - title: "BlendingState"
+      url: /classMinSG_1_1BlendingState
+      kind: class
+    - title: "BudgetAnnotationState"
+      url: /classMinSG_1_1BudgetAnnotationState
+      kind: class
+    - title: "CHCRenderer"
+      url: /classMinSG_1_1CHCRenderer
+      kind: class
+    - title: "CHCppRenderer"
+      url: /classMinSG_1_1CHCppRenderer
+      kind: class
+    - title: "CullFaceState"
+      url: /classMinSG_1_1CullFaceState
+      kind: class
+    - title: "EnvironmentState"
+      url: /classMinSG_1_1EnvironmentState
+      kind: class
+    - title: "GroupState"
+      url: /classMinSG_1_1GroupState
+      kind: class
+    - title: "HOMRenderer"
+      url: /classMinSG_1_1HOMRenderer
+      kind: class
+    - title: "LODRenderer"
+      url: /classMinSG_1_1LODRenderer
+      kind: class
+    - title: "LightingState"
+      url: /classMinSG_1_1LightingState
+      kind: class
+    - title: "MaterialState"
+      url: /classMinSG_1_1MaterialState
+      kind: class
+    - title: "MirrorState"
+      url: /classMinSG_1_1MirrorState
+      kind: class
+    - title: "NaiveOccRenderer"
+      url: /classMinSG_1_1NaiveOccRenderer
+      kind: class
+    - title: "NodeRendererState"
+      url: /classMinSG_1_1NodeRendererState
+      kind: class
+    - title: "OccRenderer"
+      url: /classMinSG_1_1OccRenderer
+      kind: class
+    - title: "OccludeeRenderer"
+      url: /classMinSG_1_1OccludeeRenderer
+      kind: class
+    - title: "PointParameterState"
+      url: /classMinSG_1_1PointParameterState
+      kind: class
+    - title: "PolygonModeState"
+      url: /classMinSG_1_1PolygonModeState
+      kind: class
+    - title: "ProjSizeFilterState"
+      url: /classMinSG_1_1ProjSizeFilterState
+      kind: class
+    - title: "RandomColorRenderer"
+      url: /classMinSG_1_1RandomColorRenderer
+      kind: class
+    - title: "RenderingParametersState"
+      url: /classMinSG_1_1RenderingParametersState
+      kind: class
+    - title: "ShaderState"
+      url: /classMinSG_1_1ShaderState
+      kind: class
+    - title: "ShaderUniformState"
+      url: /classMinSG_1_1ShaderUniformState
+      kind: class
+    - title: "ShadowState"
+      url: /classMinSG_1_1ShadowState
+      kind: class
+    - title: "SkeletalAbstractRendererState"
+      url: /classMinSG_1_1SkeletalAbstractRendererState
+      kind: class
+    - title: "SkeletalSoftwareRendererState"
+      url: /classMinSG_1_1SkeletalSoftwareRendererState
+      kind: class
+    - title: "SkyboxState"
+      url: /classMinSG_1_1SkyboxState
+      kind: class
+    - title: "State"
+      url: /classMinSG_1_1State
+      kind: class
+    - title: "StrangeExampleRenderer"
+      url: /classMinSG_1_1StrangeExampleRenderer
+      kind: class
+    - title: "TextureState"
+      url: /classMinSG_1_1TextureState
+      kind: class
+    - title: "TransparencyRenderer"
+      url: /classMinSG_1_1TransparencyRenderer
+      kind: class
+  - title: "AbstractJoint"
+    url: /classMinSG_1_1AbstractJoint
+    kind: class
+  - title: "AbstractNodeBehaviour"
+    url: /classMinSG_1_1AbstractNodeBehaviour
+    kind: class
+  - title: "AbstractPose"
+    url: /classMinSG_1_1AbstractPose
+    kind: class
+  - title: "AbstractStateBehaviour"
+    url: /classMinSG_1_1AbstractStateBehaviour
+    kind: class
+  - title: "AnimationBehaviour"
+    url: /classMinSG_1_1AnimationBehaviour
+    kind: class
+  - title: "ArmatureNode"
+    url: /classMinSG_1_1ArmatureNode
+    kind: class
+  - title: "BehaviorNodeReference"
+    url: /classMinSG_1_1BehaviorNodeReference
+    kind: class
+  - title: "BehaviorStateReference"
+    url: /classMinSG_1_1BehaviorStateReference
+    kind: class
+  - title: "BehaviorStatus"
+    url: /classMinSG_1_1BehaviorStatus
+    kind: class
+  - title: "BehaviourManager"
+    url: /classMinSG_1_1BehaviourManager
+    kind: class
+  - title: "DebugCamera"
+    url: /classMinSG_1_1DebugCamera
+    kind: class
+  - title: "DirectionalInterpolator"
+    url: /classMinSG_1_1DirectionalInterpolator
+    kind: class
+  - title: "FrameContext"
+    url: /classMinSG_1_1FrameContext
+    kind: class
+  - title: "JointNode"
+    url: /classMinSG_1_1JointNode
+    kind: class
+  - title: "LP"
+    url: /classMinSG_1_1LP
+    kind: class
+  - title: "MatrixPose"
+    url: /classMinSG_1_1MatrixPose
+    kind: class
+  - title: "OcclusionCullingStatistics"
+    url: /classMinSG_1_1OcclusionCullingStatistics
+    kind: class
+  - title: "ParticleAffector"
+    url: /classMinSG_1_1ParticleAffector
+    kind: class
+  - title: "ParticleAnimator"
+    url: /classMinSG_1_1ParticleAnimator
+    kind: class
+  - title: "ParticleBoxEmitter"
+    url: /classMinSG_1_1ParticleBoxEmitter
+    kind: class
+  - title: "ParticleEmitter"
+    url: /classMinSG_1_1ParticleEmitter
+    kind: class
+  - title: "ParticleFadeOutAffector"
+    url: /classMinSG_1_1ParticleFadeOutAffector
+    kind: class
+  - title: "ParticleGravityAffector"
+    url: /classMinSG_1_1ParticleGravityAffector
+    kind: class
+  - title: "ParticlePointEmitter"
+    url: /classMinSG_1_1ParticlePointEmitter
+    kind: class
+  - title: "ParticleReflectionAffector"
+    url: /classMinSG_1_1ParticleReflectionAffector
+    kind: class
+  - title: "RenderParam"
+    url: /classMinSG_1_1RenderParam
+    kind: class
+  - title: "RigidJoint"
+    url: /classMinSG_1_1RigidJoint
+    kind: class
+  - title: "SRTPose"
+    url: /classMinSG_1_1SRTPose
+    kind: class
+  - title: "SkeletalHardwareRendererState"
+    url: /classMinSG_1_1SkeletalHardwareRendererState
+    kind: class
+  - title: "SkeletalNode"
+    url: /classMinSG_1_1SkeletalNode
+    kind: class
+  - title: "StatChart"
+    url: /classMinSG_1_1StatChart
+    kind: class
+  - title: "Statistics"
+    url: /classMinSG_1_1Statistics
+    kind: class
+- title: Rendering
+  url: /namespaceRendering
+  kind: namespace
+  items:
+  - title: Draw
+    url: /group__draw
+    kind: group
+    items:
+    - title: "TextRenderer"
+      url: /classRendering_1_1TextRenderer
+      kind: class
+  - title: Helper
+    url: /group__rendering__helper
+    kind: group
+    items:
+    - title: "OcclusionQuery"
+      url: /classRendering_1_1OcclusionQuery
+      kind: class
+    - title: "QueryObject"
+      url: /classRendering_1_1QueryObject
+      kind: class
+    - title: "StatisticsQuery"
+      url: /classRendering_1_1StatisticsQuery
+      kind: class
+  - title: Rendering Context
+    url: /group__context
+    kind: group
+    items:
+    - title: Rendering Parameters
+      url: /group__rendering__parameter
+      kind: group
+      items:
+      - title: Comparison
+        url: /namespaceRendering_1_1Comparison
+        kind: namespace
+      - title: "AlphaTestParameters"
+        url: /classRendering_1_1AlphaTestParameters
+        kind: class
+      - title: "BlendingParameters"
+        url: /classRendering_1_1BlendingParameters
+        kind: class
+      - title: "ClipPlaneParameters"
+        url: /classRendering_1_1ClipPlaneParameters
+        kind: class
+      - title: "ColorBufferParameters"
+        url: /classRendering_1_1ColorBufferParameters
+        kind: class
+      - title: "CullFaceParameters"
+        url: /classRendering_1_1CullFaceParameters
+        kind: class
+      - title: "DepthBufferParameters"
+        url: /classRendering_1_1DepthBufferParameters
+        kind: class
+      - title: "ImageBindParameters"
+        url: /classRendering_1_1ImageBindParameters
+        kind: class
+      - title: "LightParameters"
+        url: /classRendering_1_1LightParameters
+        kind: class
+      - title: "LightingParameters"
+        url: /classRendering_1_1LightingParameters
+        kind: class
+      - title: "LineParameters"
+        url: /classRendering_1_1LineParameters
+        kind: class
+      - title: "MaterialParameters"
+        url: /classRendering_1_1MaterialParameters
+        kind: class
+      - title: "PointParameters"
+        url: /classRendering_1_1PointParameters
+        kind: class
+      - title: "PolygonModeParameters"
+        url: /classRendering_1_1PolygonModeParameters
+        kind: class
+      - title: "PolygonOffsetParameters"
+        url: /classRendering_1_1PolygonOffsetParameters
+        kind: class
+      - title: "PrimitiveRestartParameters"
+        url: /classRendering_1_1PrimitiveRestartParameters
+        kind: class
+      - title: "ScissorParameters"
+        url: /classRendering_1_1ScissorParameters
+        kind: class
+      - title: "StencilParameters"
+        url: /classRendering_1_1StencilParameters
+        kind: class
+    - title: "CoreRenderingStatus"
+      url: /classRendering_1_1CoreRenderingStatus
+      kind: class
+    - title: "RenderingContext"
+      url: /classRendering_1_1RenderingContext
+      kind: class
+    - title: "RenderingStatus"
+      url: /classRendering_1_1RenderingStatus
+      kind: class
+  - title: Resources
+    url: /group__rendering__resources
+    kind: group
+    items:
+    - title: Mesh
+      url: /group__mesh
+      kind: group
+      items:
+      - title: Mesh Accessors
+        url: /group__mesh__accessor
+        kind: group
+        items:
+        - title: "ColorAttributeAccessor"
+          url: /classRendering_1_1ColorAttributeAccessor
+          kind: class
+        - title: "ConnectivityAccessor"
+          url: /classRendering_1_1MeshUtils_1_1ConnectivityAccessor
+          kind: class
+        - title: "FloatAttributeAccessor"
+          url: /classRendering_1_1FloatAttributeAccessor
+          kind: class
+        - title: "NormalAttributeAccessor"
+          url: /classRendering_1_1NormalAttributeAccessor
+          kind: class
+        - title: "PositionAttributeAccessor"
+          url: /classRendering_1_1PositionAttributeAccessor
+          kind: class
+        - title: "TexCoordAttributeAccessor"
+          url: /classRendering_1_1TexCoordAttributeAccessor
+          kind: class
+        - title: "TriangleAccessor"
+          url: /classRendering_1_1MeshUtils_1_1TriangleAccessor
+          kind: class
+        - title: "UIntAttributeAccessor"
+          url: /classRendering_1_1UIntAttributeAccessor
+          kind: class
+        - title: "VertexAccessor"
+          url: /classRendering_1_1VertexAccessor
+          kind: class
+        - title: "VertexAttributeAccessor"
+          url: /classRendering_1_1VertexAttributeAccessor
+          kind: class
+      - title: Mesh Builder
+        url: /group__mesh__builder
+        kind: group
+        items:
+        - title: MarchingCubesMeshBuilder
+          url: /namespaceRendering_1_1MeshUtils_1_1MarchingCubesMeshBuilder
+          kind: namespace
+        - title: PlatonicSolids
+          url: /namespaceRendering_1_1MeshUtils_1_1PlatonicSolids
+          kind: namespace
+        - title: WireShapes
+          url: /namespaceRendering_1_1MeshUtils_1_1WireShapes
+          kind: namespace
+        - title: "MeshBuilder"
+          url: /classRendering_1_1MeshUtils_1_1MeshBuilder
+          kind: class
+        - title: "QuadtreeMeshBuilder"
+          url: /classRendering_1_1MeshUtils_1_1QuadtreeMeshBuilder
+          kind: class
+      - title: MeshUtils
+        url: /namespaceRendering_1_1MeshUtils
+        kind: namespace
+        items:
+        - title: Simplification
+          url: /namespaceRendering_1_1MeshUtils_1_1Simplification
+          kind: namespace
+        - title: "LocalMeshDataHolder"
+          url: /classRendering_1_1MeshUtils_1_1LocalMeshDataHolder
+          kind: class
+      - title: VertexAttributeIds
+        url: /namespaceRendering_1_1VertexAttributeIds
+        kind: namespace
+      - title: "Mesh"
+        url: /classRendering_1_1Mesh
+        kind: class
+      - title: "MeshDataStrategy"
+        url: /classRendering_1_1MeshDataStrategy
+        kind: class
+      - title: "MeshIndexData"
+        url: /classRendering_1_1MeshIndexData
+        kind: class
+      - title: "MeshVertexData"
+        url: /classRendering_1_1MeshVertexData
+        kind: class
+      - title: "SimpleMeshDataStrategy"
+        url: /classRendering_1_1SimpleMeshDataStrategy
+        kind: class
+      - title: "VertexAttribute"
+        url: /classRendering_1_1VertexAttribute
+        kind: class
+      - title: "VertexDescription"
+        url: /classRendering_1_1VertexDescription
+        kind: class
+    - title: Texture
+      url: /group__texture
+      kind: group
+      items:
+      - title: TextureUtils
+        url: /namespaceRendering_1_1TextureUtils
+        kind: namespace
+      - title: "PBO"
+        url: /classRendering_1_1PBO
+        kind: class
+      - title: "Texture"
+        url: /classRendering_1_1Texture
+        kind: class
+    - title: "BufferObject"
+      url: /classRendering_1_1BufferObject
+      kind: class
+    - title: "FBO"
+      url: /classRendering_1_1FBO
+      kind: class
+  - title: Serialization
+    url: /namespaceRendering_1_1Serialization
+    kind: namespace
+    items:
+    - title: "AbstractRenderingStreamer"
+      url: /classRendering_1_1Serialization_1_1AbstractRenderingStreamer
+      kind: class
+    - title: "StreamerMD2"
+      url: /classRendering_1_1Serialization_1_1StreamerMD2
+      kind: class
+    - title: "StreamerMMF"
+      url: /classRendering_1_1Serialization_1_1StreamerMMF
+      kind: class
+    - title: "StreamerMTL"
+      url: /classRendering_1_1Serialization_1_1StreamerMTL
+      kind: class
+    - title: "StreamerMVBO"
+      url: /classRendering_1_1Serialization_1_1StreamerMVBO
+      kind: class
+    - title: "StreamerNGC"
+      url: /classRendering_1_1Serialization_1_1StreamerNGC
+      kind: class
+    - title: "StreamerOBJ"
+      url: /classRendering_1_1Serialization_1_1StreamerOBJ
+      kind: class
+    - title: "StreamerPKM"
+      url: /classRendering_1_1Serialization_1_1StreamerPKM
+      kind: class
+    - title: "StreamerPLY"
+      url: /classRendering_1_1Serialization_1_1StreamerPLY
+      kind: class
+    - title: "StreamerXYZ"
+      url: /classRendering_1_1Serialization_1_1StreamerXYZ
+      kind: class
+  - title: Shader
+    url: /group__shader
+    kind: group
+    items:
+    - title: ShaderUtils
+      url: /namespaceRendering_1_1ShaderUtils
+      kind: namespace
+    - title: "Shader"
+      url: /classRendering_1_1Shader
+      kind: class
+    - title: "ShaderObjectInfo"
+      url: /classRendering_1_1ShaderObjectInfo
+      kind: class
+    - title: "Uniform"
+      url: /classRendering_1_1Uniform
+      kind: class
+    - title: "UniformRegistry"
+      url: /classRendering_1_1UniformRegistry
+      kind: class
+- title: Sound
+  url: /namespaceSound
+  kind: namespace
+  items:
+  - title: Serialization
+    url: /namespaceSound_1_1Serialization
+    kind: namespace
+  - title: "AbstractAudioStreamer"
+    url: /classSound_1_1AbstractAudioStreamer
+    kind: class
+  - title: "Buffer"
+    url: /classSound_1_1Buffer
+    kind: class
+  - title: "Listener"
+    url: /classSound_1_1Listener
+    kind: class
+  - title: "Source"
+    url: /classSound_1_1Source
+    kind: class
+  - title: "StreamerFLAC"
+    url: /classSound_1_1StreamerFLAC
+    kind: class
+  - title: "StreamerMP3"
+    url: /classSound_1_1StreamerMP3
+    kind: class
+  - title: "StreamerWAV"
+    url: /classSound_1_1StreamerWAV
+    kind: class
+- title: Util
+  url: /namespaceUtil
+  kind: namespace
+  items:
+  - title: Data Structures
+    url: /group__data__structures
+    kind: group
+    items:
+    - title: BidirectionalMapPolicies
+      url: /namespaceUtil_1_1BidirectionalMapPolicies
+      kind: namespace
+    - title: "BidirectionalMap"
+      url: /classUtil_1_1BidirectionalMap
+      kind: class
+    - title: "BidirectionalUnorderedMap"
+      url: /classUtil_1_1BidirectionalUnorderedMap
+      kind: class
+    - title: "UpdatableHeap"
+      url: /classUtil_1_1UpdatableHeap
+      kind: class
+  - title: Factory
+    url: /group__factory
+    kind: group
+    items:
+    - title: FallbackPolicies
+      url: /namespaceUtil_1_1FallbackPolicies
+      kind: namespace
+      items:
+      - title: "DefaultCreatorFallback"
+        url: /classUtil_1_1FallbackPolicies_1_1DefaultCreatorFallback
+        kind: class
+      - title: "ExceptionFallback"
+        url: /classUtil_1_1FallbackPolicies_1_1ExceptionFallback
+        kind: class
+      - title: "NULLFallback"
+        url: /classUtil_1_1FallbackPolicies_1_1NULLFallback
+        kind: class
+    - title: "Factory"
+      url: /classUtil_1_1Factory
+      kind: class
+    - title: "LambdaFactory"
+      url: /classUtil_1_1LambdaFactory
+      kind: class
+    - title: "ObjectCache"
+      url: /classUtil_1_1ObjectCache
+      kind: class
+    - title: "ObjectCreator"
+      url: /classUtil_1_1ObjectCreator
+      kind: class
+    - title: "ObjectPool"
+      url: /classUtil_1_1ObjectPool
+      kind: class
+    - title: "PointerHolderCreator"
+      url: /classUtil_1_1PointerHolderCreator
+      kind: class
+    - title: "PolymorphicWrapperCreator"
+      url: /classUtil_1_1PolymorphicWrapperCreator
+      kind: class
+    - title: "WrapperFactory"
+      url: /classUtil_1_1WrapperFactory
+      kind: class
+  - title: Generic Attributes
+    url: /group__generic__attr
+    kind: group
+    items:
+    - title: GenericConversion
+      url: /namespaceUtil_1_1GenericConversion
+      kind: namespace
+    - title: "AttributeProvider"
+      url: /classUtil_1_1AttributeProvider
+      kind: class
+    - title: "BoolAttribute"
+      url: /classUtil_1_1BoolAttribute
+      kind: class
+    - title: "Generic"
+      url: /classUtil_1_1Generic
+      kind: class
+    - title: "GenericAttribute"
+      url: /classUtil_1_1GenericAttribute
+      kind: class
+    - title: "GenericAttributeList"
+      url: /classUtil_1_1GenericAttributeList
+      kind: class
+    - title: "GenericAttributeMap"
+      url: /classUtil_1_1GenericAttributeMap
+      kind: class
+    - title: "GenericAttributeSerialization"
+      url: /classUtil_1_1GenericAttributeSerialization
+      kind: class
+    - title: "GenericNumberAttribute"
+      url: /classUtil_1_1GenericNumberAttribute
+      kind: class
+    - title: "GenericStringAttribute"
+      url: /classUtil_1_1GenericStringAttribute
+      kind: class
+    - title: "ReferenceAttribute"
+      url: /classUtil_1_1ReferenceAttribute
+      kind: class
+    - title: "WrapperAttribute"
+      url: /classUtil_1_1WrapperAttribute
+      kind: class
+    - title: "_NumberAttribute"
+      url: /classUtil_1_1__NumberAttribute
+      kind: class
+    - title: "_StringAttribute"
+      url: /classUtil_1_1__StringAttribute
+      kind: class
+  - title: Graphics
+    url: /group__graphics
+    kind: group
+    items:
+    - title: BitmapUtils
+      url: /namespaceUtil_1_1BitmapUtils
+      kind: namespace
+    - title: EmbeddedFont
+      url: /namespaceUtil_1_1EmbeddedFont
+      kind: namespace
+    - title: "Bitmap"
+      url: /classUtil_1_1Bitmap
+      kind: class
+    - title: "Color4f"
+      url: /classUtil_1_1Color4f
+      kind: class
+    - title: "Color4ub"
+      url: /classUtil_1_1Color4ub
+      kind: class
+    - title: "FontRenderer"
+      url: /classUtil_1_1FontRenderer
+      kind: class
+    - title: "NoiseGenerator"
+      url: /classUtil_1_1NoiseGenerator
+      kind: class
+    - title: "PixelAccessor"
+      url: /classUtil_1_1PixelAccessor
+      kind: class
+    - title: "PixelFormat"
+      url: /classUtil_1_1PixelFormat
+      kind: class
+  - title: Helper
+    url: /group__util__helper
+    kind: group
+    items:
+    - title: MicroXML
+      url: /namespaceUtil_1_1MicroXML
+      kind: namespace
+      items:
+      - title: Reader
+        url: /namespaceUtil_1_1MicroXML_1_1Reader
+        kind: namespace
+    - title: Numeric
+      url: /namespaceUtil_1_1Numeric
+      kind: namespace
+    - title: ObjectExtensions
+      url: /group__objext
+      kind: group
+    - title: Utils
+      url: /namespaceUtil_1_1Utils
+      kind: namespace
+    - title: "DebugOutput"
+      url: /classUtil_1_1DebugOutput
+      kind: class
+    - title: "JSON_Parser"
+      url: /classUtil_1_1JSON__Parser
+      kind: class
+    - title: "ProgressIndicator"
+      url: /classUtil_1_1ProgressIndicator
+      kind: class
+    - title: "Timer"
+      url: /classUtil_1_1Timer
+      kind: class
+    - title: "TriState"
+      url: /classUtil_1_1TriState
+      kind: class
+  - title: IO
+    url: /group__io
+    kind: group
+    items:
+    - title: "AbstractFSProvider"
+      url: /classUtil_1_1AbstractFSProvider
+      kind: class
+    - title: "ArchiveProvider"
+      url: /classUtil_1_1ArchiveProvider
+      kind: class
+    - title: "DBFSProvider"
+      url: /classUtil_1_1DBFSProvider
+      kind: class
+    - title: "FSProvider"
+      url: /classUtil_1_1FSProvider
+      kind: class
+    - title: "FileLocator"
+      url: /classUtil_1_1FileLocator
+      kind: class
+    - title: "FileName"
+      url: /classUtil_1_1FileName
+      kind: class
+    - title: "NetProvider"
+      url: /classUtil_1_1NetProvider
+      kind: class
+    - title: "SerialProvider"
+      url: /classUtil_1_1SerialProvider
+      kind: class
+    - title: "TemporaryDirectory"
+      url: /classUtil_1_1TemporaryDirectory
+      kind: class
+    - title: "ZIPProvider"
+      url: /classUtil_1_1ZIPProvider
+      kind: class
+  - title: Network
+    url: /namespaceUtil_1_1Network
+    kind: namespace
+    items:
+    - title: "ClockSynchronizer"
+      url: /classUtil_1_1Network_1_1ClockSynchronizer
+      kind: class
+    - title: "DataBroadcaster"
+      url: /classUtil_1_1Network_1_1DataBroadcaster
+      kind: class
+    - title: "DataConnection"
+      url: /classUtil_1_1Network_1_1DataConnection
+      kind: class
+    - title: "IPv4Address"
+      url: /classUtil_1_1Network_1_1IPv4Address
+      kind: class
+    - title: "TCPConnection"
+      url: /classUtil_1_1Network_1_1TCPConnection
+      kind: class
+    - title: "TCPServer"
+      url: /classUtil_1_1Network_1_1TCPServer
+      kind: class
+    - title: "UDPNetworkSocket"
+      url: /classUtil_1_1Network_1_1UDPNetworkSocket
+      kind: class
+  - title: References
+    url: /group__reference
+    kind: group
+    items:
+    - title: "CountedObjectWrapper"
+      url: /classUtil_1_1CountedObjectWrapper
+      kind: class
+    - title: "Reference"
+      url: /classUtil_1_1Reference
+      kind: class
+    - title: "ReferenceCounter"
+      url: /classUtil_1_1ReferenceCounter
+      kind: class
+    - title: "WeakPointer"
+      url: /classUtil_1_1WeakPointer
+      kind: class
+  - title: Registry
+    url: /group__registry
+    kind: group
+    items:
+    - title: LibRegistry
+      url: /namespaceUtil_1_1LibRegistry
+      kind: namespace
+    - title: "OptionalRegistryHandleHolder"
+      url: /classUtil_1_1OptionalRegistryHandleHolder
+      kind: class
+    - title: "Registry"
+      url: /classUtil_1_1Registry
+      kind: class
+    - title: "RegistryHandle"
+      url: /classUtil_1_1RegistryHandle
+      kind: class
+    - title: "RegistryHandleHolder"
+      url: /classUtil_1_1RegistryHandleHolder
+      kind: class
+  - title: Resources
+    url: /group__resources
+    kind: group
+    items:
+    - title: "AttributeAccessor"
+      url: /classUtil_1_1AttributeAccessor
+      kind: class
+    - title: "ResourceAccessor"
+      url: /classUtil_1_1ResourceAccessor
+      kind: class
+    - title: "ResourceAttribute"
+      url: /classUtil_1_1ResourceAttribute
+      kind: class
+    - title: "ResourceFormat"
+      url: /classUtil_1_1ResourceFormat
+      kind: class
+    - title: "StructuredAccessor"
+      url: /classUtil_1_1StructuredAccessor
+      kind: class
+  - title: Serialization
+    url: /namespaceUtil_1_1Serialization
+    kind: namespace
+    items:
+    - title: "AbstractBitmapStreamer"
+      url: /classUtil_1_1Serialization_1_1AbstractBitmapStreamer
+      kind: class
+    - title: "AbstractStreamer"
+      url: /classUtil_1_1Serialization_1_1AbstractStreamer
+      kind: class
+    - title: "StreamerPNG"
+      url: /classUtil_1_1Serialization_1_1StreamerPNG
+      kind: class
+    - title: "StreamerSDL"
+      url: /classUtil_1_1Serialization_1_1StreamerSDL
+      kind: class
+    - title: "StreamerSDLImage"
+      url: /classUtil_1_1Serialization_1_1StreamerSDLImage
+      kind: class
+    - title: "StreamerSTB"
+      url: /classUtil_1_1Serialization_1_1StreamerSTB
+      kind: class
+    - title: "StreamerTGA"
+      url: /classUtil_1_1Serialization_1_1StreamerTGA
+      kind: class
+  - title: Strings
+    url: /group__strings
+    kind: group
+    items:
+    - title: StringUtils
+      url: /namespaceUtil_1_1StringUtils
+      kind: namespace
+    - title: "StringIdentifier"
+      url: /classUtil_1_1StringIdentifier
+      kind: class
+  - title: UI
+    url: /namespaceUtil_1_1UI
+    kind: namespace
+    items:
+    - title: "Cursor"
+      url: /classUtil_1_1UI_1_1Cursor
+      kind: class
+    - title: "EventContext"
+      url: /classUtil_1_1UI_1_1EventContext
+      kind: class
+    - title: "EventQueue"
+      url: /classUtil_1_1UI_1_1EventQueue
+      kind: class
+    - title: "SplashScreen"
+      url: /classUtil_1_1UI_1_1SplashScreen
+      kind: class
+    - title: "Window"
+      url: /classUtil_1_1UI_1_1Window
+      kind: class
+    - title: "WindowSDL"
+      url: /classUtil_1_1UI_1_1WindowSDL
+      kind: class
