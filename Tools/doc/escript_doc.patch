@@ -35,16 +35,19 @@ diff --git a/EScript/Objects/Values/Number.cpp b/EScript/Objects/Values/Number.c
 index 954e2b9..7b9d5b2 100644
 --- a/EScript/Objects/Values/Number.cpp
 +++ b/EScript/Objects/Values/Number.cpp
-@@ -228,10 +228,11 @@ void Number::init(EScript::Namespace & globals) {
+
+@@ -228,10 +228,10 @@ void Number::init(EScript::Namespace & globals) {
  
  	/*! [ESMF] Number Number.round( [reference = 1.0] )
  		@param reference Reference value to which should be rounded:  x.round(reference) ^== reference * round(x/reference)
 -		@example (123.456).round(0.1) == 123.5
-+		Example: @code (123.456).round(0.1) == 123.5
- 				(123.456).round(5) == 125
- 				(123.456).round(10) == 120 
- 				(-0.456).round() == 0
-+		@endcode
+-				(123.456).round(5) == 125; 
+-				(123.456).round(10) == 120; 
+-				(-0.456).round() == 0; 
++		Example: (123.456).round(0.1) == 123.5; 
++				(123.456).round(5) == 125; 
++				(123.456).round(10) == 120; 
++				(-0.456).round() == 0; 
  				*/
  	ES_FUNCTION(typeObject,"round",0,1,{
  		if(parameter.count()==0){
