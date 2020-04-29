@@ -3,7 +3,7 @@ title: Building PADrend from source
 summary: This tutorial describes how to build PADrend from source code.
 permalink: installation_guide
 author: Benjamin Eikel, Claudius Jähn, Ralf Petring, Sascha Brandt
-last_updated: December 2, 2019
+last_updated: April, 2020
 category: Installation Guide@0
 order: 0
 ---
@@ -35,8 +35,9 @@ Make sure that your C++ compiler works as expected by compiling a simple C++ pro
 For building PADrend (not the libraries!) the [Ninja](https://github.com/martine/ninja) build system can be used.
 
 ### Choose your IDE
-* We recommend using [Atom](https://atom.io/) with the plugins [autocomplete-clang](https://atom.io/packages/autocomplete-clang), [linter-clang](https://atom.io/packages/linter-clang) and [language-escript](https://atom.io/packages/language-escript). See [Setting up Atom](atom_guide) for more information.
-* Other possible IDEs are: [Visual Studio Code](https://code.visualstudio.com/), [CLion](https://www.jetbrains.com/clion/), [CodeBlocks](http://www.codeblocks.org/), [Eclipse](https://www.eclipse.org/)
+* We recommend using [Visual Studio Code](https://code.visualstudio.com/) with the extensions [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake), [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) and [EScript Language](https://marketplace.visualstudio.com/items?itemName=meisteryeti.language-escript).
+* Another proven IDE is [Atom](https://atom.io/) with the plugins [autocomplete-clang](https://atom.io/packages/autocomplete-clang), [linter-clang](https://atom.io/packages/linter-clang) and [language-escript](https://atom.io/packages/language-escript). See [Setting up Atom](atom_guide) for more information.
+* Other possible IDEs are: [CLion](https://www.jetbrains.com/clion/), [CodeBlocks](http://www.codeblocks.org/), [Eclipse](https://www.eclipse.org/)
 * Visual Studio is currently not supported.
 
 ### GIT
